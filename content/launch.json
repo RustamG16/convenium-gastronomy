@@ -1,0 +1,17 @@
+{
+  "mode": "demo",
+  "siteUrl": "https://convenium.at/gastronomy/",
+  "studioUrl": "https://convenium.at/",
+  "email": "convenium@outlook.com",
+  "phone": "+43 690 10682073",
+  "legal": {
+    "owner": null,
+    "address": null,
+    "business": { "de": "Webdesign und Website-Erstellung", "en": "Web design and website development" },
+    "gewerbe": null,
+    "authority": null,
+    "chamber": null,
+    "uid": null
+  },
+  "example": { "id": "savra", "name": "SAVRA", "url": "https://rustamg16.github.io/Savra_v2/" }
+}

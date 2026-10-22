@@ -1,0 +1,63 @@
+{
+  "id": "gastronomy-klagenfurt-launch-2026",
+  "active": true,
+  "endsAt": "2026-11-15T23:59:00+01:00",
+  "timezone": "Europe/Vienna",
+  "slotsTotal": 10,
+  "slotsLeft": 10,
+  "_note": "Same prices, end date and market sources as the studio's content/campaign.json (Hair & Beauty, Rustam 2026-10-06). Separate places: ten for gastronomy. Prices change only on Rustam's word.",
+  "claim": {
+    "sources": [
+      { "id": "landing", "label": "exponent.at — Was kostet eine Website in Österreich? (2026)", "url": "https://exponent.at/blog/was-kostet-eine-website-oesterreich-2026", "low": 1500, "high": 3000, "what": { "en": "Landing page (one page)", "de": "Landingpage (eine Seite)" } },
+      { "id": "seo", "label": "exponent.at — Was kostet eine Website in Österreich? (2026)", "url": "https://exponent.at/blog/was-kostet-eine-website-oesterreich-2026", "low": 500, "high": 2000, "what": { "en": "Technical SEO, one-time", "de": "Technisches SEO, einmalig" } },
+      { "id": "social", "label": "Die Marketing Nerds (Graz) — Social Media Betreuung: Kosten", "url": "https://diemarketingnerds.com/magazin/social-media-betreuung-kosten/", "low": 300, "high": 600, "what": { "en": "Social media, basic package (2–4 posts, one channel), per month", "de": "Social Media, Basispaket (2–4 Posts, ein Kanal), pro Monat" } }
+    ]
+  },
+  "services": {
+    "website": { "launch": 500, "market": 2250, "basis": ["landing"] },
+    "google-seo": { "launch": 200, "market": 1250, "basis": ["seo"] },
+    "social-month": { "launch": 290, "market": 450, "basis": ["social"] }
+  },
+  "packages": [
+    { "id": "website", "services": ["website"], "launch": 500, "market": 2250 },
+    { "id": "website-seo", "services": ["website", "google-seo"], "launch": 700, "market": 3500 },
+    { "id": "website-seo-social", "services": ["website", "google-seo", "social-month"], "launch": 990, "market": 3950 }
+  ],
+  "ctaUrl": "https://convenium.at/gastronomy/#karte",
+  "copy": {
+    "en": {
+      "label": "Launch offer · the first 10 venues",
+      "claim": "Launch prices for the first 10 venues – compared with the Austrian market average",
+      "claimSource": "Where the market averages come from",
+      "slots": "{n} of {total} launch places left",
+      "full": "All launch places are taken",
+      "after": "Our regular prices will be announced after a consultation with our accounting team.",
+      "until": "Launch price until {date}",
+      "onRequest": "Price on request",
+      "market": "Austrian market average",
+      "sourcesNote": "Ranges published by Austrian agencies on their own pages, net excl. VAT, 2026. A market average here is the midpoint of the range; packages add up the ranges they contain. They are a reference, not a quote.",
+      "cta": "See the menu",
+      "risk": "Fixed price in writing before we start · 2 rounds of corrections",
+      "ends": "Ends in",
+      "units": { "d": "days", "h": "hrs", "m": "min", "s": "sec" },
+      "table": "{n} of {total} places free"
+    },
+    "de": {
+      "label": "Launch-Aktion · die ersten 10 Lokale",
+      "claim": "Launch-Preise für die ersten 10 Lokale – verglichen mit dem österreichischen Marktdurchschnitt",
+      "claimSource": "Woher die Marktdurchschnitte kommen",
+      "slots": "{n} von {total} Launch-Plätzen frei",
+      "full": "Alle Launch-Plätze sind vergeben",
+      "after": "Unsere regulären Preise geben wir nach der Beratung mit unserem Steuerberatungsteam bekannt.",
+      "until": "Launch-Preis bis {date}",
+      "onRequest": "Preis auf Anfrage",
+      "market": "Österreichischer Marktdurchschnitt",
+      "sourcesNote": "Spannen, die österreichische Agenturen auf ihren eigenen Seiten veröffentlichen, netto ohne USt., 2026. Ein Marktdurchschnitt ist hier die Mitte der Spanne; Pakete addieren die Spannen, die sie enthalten. Sie sind ein Richtwert, kein Angebot.",
+      "cta": "Zur Karte",
+      "risk": "Fixpreis schriftlich vor Start · 2 Korrekturrunden",
+      "ends": "Endet in",
+      "units": { "d": "Tage", "h": "Std", "m": "Min", "s": "Sek" },
+      "table": "{n} von {total} Plätzen frei"
+    }
+  }
+}

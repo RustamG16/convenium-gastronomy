@@ -1,0 +1,113 @@
+{
+  "lang": "de",
+  "ogLocale": "de_AT",
+  "numberLocale": "de-AT",
+  "title": "Websites für Gastronomie — Convenium",
+  "description": "Individuelle Websites für Restaurants, Cafés, Bars und Bäckereien in Klagenfurt. Zehn Launch-Plätze zum Fixpreis. Von Convenium, Klagenfurt.",
+  "skip": "Zum Inhalt",
+  "brandLabel": "Convenium, zum Seitenanfang",
+  "nav": { "menu": "Die Karte", "example": "Beispiel", "process": "Ablauf", "cta": "Platz reservieren", "menuBtn": "Menü", "close": "Schließen", "main": "Hauptnavigation", "mobile": "Mobile Navigation", "foot": "Fußnavigation", "localeSr": "English: ", "deLong": "Deutsch", "enLong": "English" },
+  "hero": {
+    "eyebrow": "Websites für Gastronomie · Klagenfurt",
+    "line1": "Ihr Lokal.",
+    "line2": "Ein eigener Tisch",
+    "line3": "im Netz.",
+    "body": "Individuelle Websites für Restaurants, Cafés, Bars und Bäckereien. Zehn Launch-Plätze, Fixpreis vorab.",
+    "primary": "Zur Karte",
+    "secondary": "Platz reservieren",
+    "tableLabel": "Zehn Launch-Plätze",
+    "tableCaption": "Jeder Platz ist eine Website zum Launch-Preis – für die ersten zehn Lokale.",
+    "plateFree": "frei",
+    "plateTaken": "reserviert",
+    "tableSr": "Tisch für zehn: ein Teller pro Launch-Platz."
+  },
+  "menu": {
+    "label": "01 / Die Karte",
+    "title": "Drei Gänge.",
+    "titleAccent": "Ein Fixpreis.",
+    "intro": "Wie auf der Karte: drei Gänge, der Preis steht dabei. Launch-Preise für die ersten zehn Lokale, verglichen mit dem österreichischen Marktdurchschnitt.",
+    "course": "Gang",
+    "chip": "Launch-Aktion",
+    "from": "ab",
+    "once": "einmalig · netto",
+    "featured": "Empfehlung des Hauses",
+    "choose": "Diesen Gang wählen",
+    "items": {
+      "website": { "name": "Website", "title": "Gut anrichten.", "includes": ["Karte, Zeiten, Team, Anfahrt", "Reservierungs- und Bestelllinks", "Eine Seite für ein Lokal, in Ihrem Stil"] },
+      "website-seo": { "name": "Website + Google SEO", "title": "Gefunden werden.", "includes": ["Alles aus „Website“", "Google SEO für Ihre Stadt", "Search Console eingerichtet"] },
+      "website-seo-social": { "name": "Website + SEO + Social", "title": "Im Gespräch bleiben.", "includes": ["Alles aus „Website + Google SEO“", "Ein Monat Social Media", "1 KI-Video + 4 Posts, ein Kanal"] }
+    },
+    "extrasTitle": "Dazu bestellen",
+    "extras": [
+      { "name": "Google-Unternehmensprofil", "why": "Adresse, Zeiten, Karte und Bilder – richtig und aktuell.", "price": 150, "unit": "einmalig" },
+      { "name": "Instagram: Profil, Bio & 4 Highlight-Cover", "why": "Sofort klar: Küche, Ort, Reservierung.", "price": 150, "unit": "einmalig" },
+      { "name": "Website-Pflege", "why": "Neue Karte, neue Zeiten – Sie melden sich, wir pflegen ein.", "price": 39, "unit": "/ Monat" }
+    ],
+    "valueTitle": "In jedem Gang",
+    "value": [["Eigenes Design", "Keine Vorlage."], ["Smartphone zuerst", "Und auf dem Desktop."], ["Fixpreis vorab", "Schriftlich, vor dem Start."], ["Übergabe inklusive", "2 Korrekturrunden, 60 Minuten."]],
+    "note": "Mehr Seiten, Standorte oder Sprachen nach Umfang. Nicht enthalten: Domain, Hosting, Gebühren für Reservierungs- oder Bestellsysteme, Fotoshooting, Rechtstexte, Werbebudget. Keine Garantie für Rankings oder Reservierungen."
+  },
+  "example": {
+    "label": "02 / Aus der Küche",
+    "title": "Durch die blaue Tür",
+    "titleAccent": "in den Raum.",
+    "intro": "SAVRA ist eine Konzeptwebsite für ein Restaurant in Wien: ein Scroll führt durch die Tür an den gedeckten Tisch. Ihre Website bekommt eine eigene Gestaltung – Ihre Karte, Ihre Zeiten, Ihre Reservierung.",
+    "name": "SAVRA",
+    "status": "Konzeptwebsite · kein Kundenauftrag",
+    "live": "Live-Demo öffnen",
+    "newTab": " (öffnet in neuem Tab)",
+    "choose": "Diese Richtung wählen",
+    "alt": "Screenshot der SAVRA-Konzeptwebsite: große Serifen-Buchstaben SAVRA vor einer petrolblauen Wand, dazwischen der Blick durch eine Tür auf einen gedeckten Tisch mit Lampe.",
+    "caption": "Echte Aufnahme der Konzeptwebsite · bewegt sich bei Berührung",
+    "motionPause": "Bewegung pausieren",
+    "motionPlay": "Bewegung aktivieren"
+  },
+  "process": {
+    "label": "03 / Ablauf",
+    "title": "Vom Gespräch",
+    "titleAccent": "zum Tisch.",
+    "steps": [["Kennenlernen", "Ihr Lokal, Ihre Gäste, Ihre Karte."], ["Abschmecken", "Gestaltung und Texte in Ihrem Stil, zwei Korrekturrunden."], ["Servieren", "Veröffentlichen, prüfen, übergeben – mit 60 Minuten Einführung."]]
+  },
+  "inquiry": {
+    "label": "04 / Reservierung",
+    "title": "Reservieren Sie",
+    "titleAccent": "Ihren Platz.",
+    "body": "Erzählen Sie uns von Ihrem Lokal – zwei Sätze genügen.",
+    "demo": "Demo: Hier wird keine Nachricht versendet. Sie bereiten Ihren Anfragetext vor und kopieren ihn.",
+    "selected": "Gewählte Richtung",
+    "clear": "Auswahl entfernen",
+    "packageSelected": "Gewählter Gang",
+    "packageClear": "Gang entfernen",
+    "none": "Noch offen",
+    "chosen": "ausgewählt",
+    "business": "Name des Lokals",
+    "location": "Ort (optional)",
+    "idea": "Ihre Idee",
+    "preview": "Ihr Anfragetext",
+    "template": "Ich interessiere mich für eine individuelle Website für mein Lokal. Lokal: … Ort: … Richtung: … Gang: … Meine Idee: …",
+    "fallback": "Ohne JavaScript: Kopieren Sie diese Vorlage und ergänzen Sie Lokal, Ort, Richtung, gewünschten Gang und Ihre Idee.",
+    "copy": "Anfragetext kopieren",
+    "success": "Anfragetext kopiert. Es wurde keine Nachricht gesendet.",
+    "failure": "Kopieren nicht möglich. Bitte markieren und kopieren Sie den Text unten.",
+    "draft": { "intro": "Ich interessiere mich für eine individuelle Website für mein Lokal.", "business": "Lokal", "location": "Ort", "direction": "Richtung", "package": "Gang", "price": "Ab-Preis", "idea": "Meine Idee", "empty": "…", "once": "einmalig", "net": "netto", "from": "ab" }
+  },
+  "faq": {
+    "title": "Häufige",
+    "titleAccent": "Fragen",
+    "items": [
+      ["Ist das eine fertige Vorlage?", "Nein. SAVRA zeigt eine Richtung; Ihre Website wird für Ihr Lokal gestaltet."],
+      ["Kann meine Reservierung eingebunden werden?", "Vorhandene Reservierungs- oder Bestelllinks ja. Weitere Integrationen hängen vom Anbieter ab."],
+      ["Was kostet eine Website?", "Ab € 500 netto für eine einseitige Website – der Launch-Preis für die ersten zehn Lokale. Den Endpreis bestätigen wir vor dem Start schriftlich."],
+      ["Ist SAVRA ein Kundenprojekt?", "Nein. SAVRA ist eine Konzeptwebsite von Convenium, kein Kundenauftrag."]
+    ]
+  },
+  "footer": {
+    "line": "Convenium · Gastronomie · Klagenfurt",
+    "top": "Nach oben",
+    "legal": "Demo-Vorschau · keine Veröffentlichung, kein Versand",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "studio": "Convenium Studio, Startseite",
+    "otherLocale": "English"
+  }
+}

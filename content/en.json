@@ -1,0 +1,113 @@
+{
+  "lang": "en",
+  "ogLocale": "en_GB",
+  "numberLocale": "en-GB",
+  "title": "Websites for Restaurants & Cafés — Convenium",
+  "description": "Bespoke websites for restaurants, cafés, bars and bakeries in Klagenfurt. Ten launch places at a fixed price. By Convenium, Klagenfurt.",
+  "skip": "Skip to content",
+  "brandLabel": "Convenium, back to top",
+  "nav": { "menu": "The menu", "example": "Example", "process": "Process", "cta": "Reserve a place", "menuBtn": "Menu", "close": "Close", "main": "Main navigation", "mobile": "Mobile navigation", "foot": "Footer navigation", "localeSr": "Deutsch: ", "deLong": "Deutsch", "enLong": "English" },
+  "hero": {
+    "eyebrow": "Websites for Gastronomy · Klagenfurt",
+    "line1": "Your venue.",
+    "line2": "A table of",
+    "line3": "its own online.",
+    "body": "Bespoke websites for restaurants, cafés, bars and bakeries. Ten launch places, fixed price up front.",
+    "primary": "See the menu",
+    "secondary": "Reserve a place",
+    "tableLabel": "Ten launch places",
+    "tableCaption": "Each place is one website at the launch price – for the first ten venues.",
+    "plateFree": "free",
+    "plateTaken": "reserved",
+    "tableSr": "A table for ten: one plate per launch place."
+  },
+  "menu": {
+    "label": "01 / The menu",
+    "title": "Three courses.",
+    "titleAccent": "One fixed price.",
+    "intro": "Like a menu: three courses, the price beside each. Launch prices for the first ten venues, compared with the Austrian market average.",
+    "course": "Course",
+    "chip": "Launch offer",
+    "from": "from",
+    "once": "one-off · net",
+    "featured": "The house recommends",
+    "choose": "Choose this course",
+    "items": {
+      "website": { "name": "Website", "title": "Well plated.", "includes": ["Menu, hours, team, directions", "Reservation and ordering links", "One page for one venue, in your style"] },
+      "website-seo": { "name": "Website + Google SEO", "title": "Get found.", "includes": ["Everything in “Website”", "Google SEO for your city", "Search Console set up"] },
+      "website-seo-social": { "name": "Website + SEO + Social", "title": "Stay on the table.", "includes": ["Everything in “Website + Google SEO”", "One month of social media", "1 AI video + 4 posts, one channel"] }
+    },
+    "extrasTitle": "On the side",
+    "extras": [
+      { "name": "Google Business Profile", "why": "Address, hours, menu and pictures – correct and current.", "price": 150, "unit": "one-off" },
+      { "name": "Instagram: profile, bio & 4 highlight covers", "why": "Clear at a glance: kitchen, place, reservation.", "price": 150, "unit": "one-off" },
+      { "name": "Website care", "why": "New menu, new hours – you tell us, we keep it current.", "price": 39, "unit": "/ month" }
+    ],
+    "valueTitle": "With every course",
+    "value": [["Your own design", "No template."], ["Phone first", "And on the desktop."], ["Fixed price up front", "In writing, before we start."], ["Handover included", "2 rounds of corrections, 60 minutes."]],
+    "note": "More pages, locations or languages by scope. Not included: domain, hosting, reservation or ordering system fees, photo shoot, legal texts, ad budget. No guarantee of rankings or reservations."
+  },
+  "example": {
+    "label": "02 / From the kitchen",
+    "title": "Through the blue door",
+    "titleAccent": "and into the room.",
+    "intro": "SAVRA is a concept website for a restaurant in Vienna: one scroll leads through the door to the set table. Your website gets a design of its own – your menu, your hours, your reservation.",
+    "name": "SAVRA",
+    "status": "Concept website · not a client project",
+    "live": "Open the live demo",
+    "newTab": " (opens in a new tab)",
+    "choose": "Choose this direction",
+    "alt": "Screenshot of the SAVRA concept website: large serif letters SAVRA on a teal wall, between them a view through a door onto a set table with a lamp.",
+    "caption": "Real capture of the concept website · moves on touch",
+    "motionPause": "Pause motion",
+    "motionPlay": "Enable motion"
+  },
+  "process": {
+    "label": "03 / Process",
+    "title": "From the first talk",
+    "titleAccent": "to the table.",
+    "steps": [["Meet", "Your venue, your guests, your menu."], ["Taste", "Design and copy in your style, two rounds of corrections."], ["Serve", "Publish, check, hand over – with a 60-minute walkthrough."]]
+  },
+  "inquiry": {
+    "label": "04 / Reservation",
+    "title": "Reserve",
+    "titleAccent": "your place.",
+    "body": "Tell us about your venue – two sentences are enough.",
+    "demo": "Demo: nothing is sent from here. You prepare your inquiry text and copy it.",
+    "selected": "Chosen direction",
+    "clear": "Remove selection",
+    "packageSelected": "Chosen course",
+    "packageClear": "Remove course",
+    "none": "Still open",
+    "chosen": "selected",
+    "business": "Name of the venue",
+    "location": "Town (optional)",
+    "idea": "Your idea",
+    "preview": "Your inquiry text",
+    "template": "I am interested in a bespoke website for my venue. Venue: … Town: … Direction: … Course: … My idea: …",
+    "fallback": "Without JavaScript: copy this template and fill in venue, town, direction, the course you want and your idea.",
+    "copy": "Copy inquiry text",
+    "success": "Inquiry text copied. No message was sent.",
+    "failure": "Copying is not possible. Please select and copy the text below.",
+    "draft": { "intro": "I am interested in a bespoke website for my venue.", "business": "Venue", "location": "Town", "direction": "Direction", "package": "Course", "price": "From", "idea": "My idea", "empty": "…", "once": "one-off", "net": "net", "from": "from" }
+  },
+  "faq": {
+    "title": "Frequent",
+    "titleAccent": "questions",
+    "items": [
+      ["Is this a ready-made template?", "No. SAVRA shows a direction; your website is designed for your venue."],
+      ["Can my reservation system be included?", "Existing reservation or ordering links, yes. Further integrations depend on the provider."],
+      ["What does a website cost?", "From €500 net for a one-page website – the launch price for the first ten venues. We confirm the final price in writing before we start."],
+      ["Is SAVRA a client project?", "No. SAVRA is a concept website by Convenium, not a client project."]
+    ]
+  },
+  "footer": {
+    "line": "Convenium · Gastronomy · Klagenfurt",
+    "top": "Back to top",
+    "legal": "Demo preview · not published, nothing is sent",
+    "imprint": "Imprint",
+    "privacy": "Privacy",
+    "studio": "Convenium Studio, home",
+    "otherLocale": "Deutsch"
+  }
+}
