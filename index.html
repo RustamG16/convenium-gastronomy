@@ -2,13 +2,13 @@
 <html lang="de" class="no-js">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-A7kybvokWAe3T9hBeDjSubBib1FYvgoj/LT4qcGRFwo='; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="robots" content="noindex,nofollow">
   <title>Websites für Gastronomie — Convenium</title>
   <meta name="description" content="Individuelle Websites für Restaurants, Cafés, Bars und Bäckereien in Klagenfurt. Zehn Launch-Plätze zum Fixpreis. Von Convenium, Klagenfurt.">
-  <meta name="theme-color" content="#1B1717">
+  <meta name="theme-color" content="#810100">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <script>if(matchMedia('(prefers-reduced-motion: no-preference)').matches)document.documentElement.classList.add('pre')</script>
   <link rel="alternate" hreflang="de" href="./">
@@ -21,8 +21,8 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/kit/fonts/newsreader-1.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/kit/fonts/newsreader-0.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/kit/fonts/instrument-serif-400.woff2">
+  <link rel="preload" as="image" href="assets/photos/hero-room.webp">
   <link rel="stylesheet" href="assets/kit/fonts/fonts.css">
   <link rel="stylesheet" href="styles.css">
   <script defer src="assets/kit/vendor/gsap.min.js"></script>
@@ -33,179 +33,185 @@
 <body>
   <a class="skip" href="#inhalt">Zum Inhalt</a>
 
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="Convenium, zum Seitenanfang">CONVENIUM<span>.</span></a>
-    <nav class="nav-capsule" aria-label="Hauptnavigation">
-      <a href="#karte">Die Karte</a><a href="#beispiel">Beispiel</a><a href="#ablauf">Ablauf</a>
-      <span class="locale"><a href="./" aria-current="page">DE</a><a href="en/" hreflang="en" lang="en" data-locale-link data-base="en/"><span class="sr-only">English: </span>EN</a></span>
-    </nav>
-    <a class="pill pill--accent header-cta" href="#reservierung">Platz reservieren</a>
-    <button class="pill pill--light menu-toggle js-only" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>Menü</button>
-    <div class="mobile-menu" id="mobile-menu" hidden>
-      <nav aria-label="Mobile Navigation">
-        <a href="#karte">Die Karte <span aria-hidden="true">→</span></a><a href="#beispiel">Beispiel <span aria-hidden="true">→</span></a><a href="#ablauf">Ablauf <span aria-hidden="true">→</span></a>
-        <div class="menu-locale"><a href="./" aria-current="page">Deutsch</a><a href="en/" hreflang="en" lang="en" data-locale-link data-base="en/">English</a></div>
-        <a class="pill pill--accent" href="#reservierung">Platz reservieren</a>
-      </nav>
-    </div>
+  <header class="bar">
+    <a class="btn btn--ghost bar-cta" href="#reservierung">Platz reservieren</a>
+    <a class="bar-mark" href="#top" aria-label="Convenium, zum Seitenanfang">Convenium</a>
+    <button class="bar-menu js-only" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle><span class="bar-lines" aria-hidden="true"></span><span class="sr-only" data-menu-label>Menü</span></button>
+    <a class="bar-menu nojs-only" href="#fusszeile"><span class="bar-lines" aria-hidden="true"></span><span class="sr-only">Menü</span></a>
   </header>
+
+  <div class="menu" id="menu" hidden>
+    <nav class="menu-nav" aria-label="Hauptnavigation">
+      <a href="#karte">Die Karte</a><a href="#beispiel">Beispiel</a><a href="#ablauf">Ablauf</a>
+      <a href="#reservierung">Platz reservieren</a>
+    </nav>
+    <p class="menu-locale"><a href="./" aria-current="page">Deutsch</a><a href="en/" hreflang="en" lang="en" data-locale-link data-base="en/">English</a></p>
+  </div>
 
   <main id="inhalt">
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="label">Websites für Gastronomie · Klagenfurt</p>
-          <h1 id="hero-title"><span class="line"><span class="line-inner">Ihr Lokal.</span></span><span class="line"><em class="line-inner">Ein eigener Tisch</em></span><span class="line"><em class="line-inner">im Netz.</em></span></h1>
-          <p class="hero-body">Individuelle Websites für Restaurants, Cafés, Bars und Bäckereien. Zehn Launch-Plätze, Fixpreis vorab.</p>
-          <div class="actions">
-            <a class="pill pill--light" href="#karte">Zur Karte <span class="arrow" aria-hidden="true">↓</span></a>
-            <a class="text-link" href="#reservierung">Platz reservieren <span class="arrow" aria-hidden="true">→</span></a>
-          </div>
+      <figure class="hero-photo"><img src="assets/photos/hero-room.webp" width="1289" height="1600" alt="Ein Bistro in der Dämmerung: dunkles Holz, kirschrote Samtbänke, weiße Tischtücher und Kerzen; eine Hand im weißen Hemdärmel stellt einen Teller ab." fetchpriority="high"></figure>
+      <div class="hero-panel">
+        <p class="label">Websites für Gastronomie · Klagenfurt</p>
+        <h1 id="hero-title"><span class="line"><span class="line-inner">Ihr Lokal.</span></span><span class="line"><em class="line-inner">Ein eigener Tisch</em></span><span class="line"><em class="line-inner">im Netz.</em></span></h1>
+        <p class="hero-body">Individuelle Websites für Restaurants, Cafés, Bars und Bäckereien. Zehn Launch-Plätze, Fixpreis vorab.</p>
+        <div class="actions">
+          <a class="btn btn--solid" href="#karte">Zur Karte</a>
+          <a class="arrow-link" href="#reservierung" ><span>Platz reservieren</span><span class="arrow-dot" aria-hidden="true"></span></a>
         </div>
-        <figure class="table">
-          <figcaption class="table-caption"><span class="label" id="table-label">Zehn Launch-Plätze</span><span class="table-count" data-camp-slots>10 von 10 Plätzen frei</span></figcaption>
-          <div class="table-top" role="img" aria-label="Tisch für zehn: ein Teller pro Launch-Platz.">
-            <ol class="plates" aria-hidden="true"><li class="plate" data-plate="1"><span class="plate-num">01</span></li><li class="plate" data-plate="2"><span class="plate-num">02</span></li><li class="plate" data-plate="3"><span class="plate-num">03</span></li><li class="plate" data-plate="4"><span class="plate-num">04</span></li><li class="plate" data-plate="5"><span class="plate-num">05</span></li><li class="plate" data-plate="6"><span class="plate-num">06</span></li><li class="plate" data-plate="7"><span class="plate-num">07</span></li><li class="plate" data-plate="8"><span class="plate-num">08</span></li><li class="plate" data-plate="9"><span class="plate-num">09</span></li><li class="plate" data-plate="10"><span class="plate-num">10</span></li></ol>
-          </div>
-          <p class="table-note">Jeder Platz ist eine Website zum Launch-Preis – für die ersten zehn Lokale.</p>
-        </figure>
+        <div class="hero-places">
+          <p class="label label--quiet">Zehn Launch-Plätze</p>
+          <span class="ticks" role="img" aria-label="Zehn Launch-Plätze, einer pro Lokal."><span class="tick" data-plate="1"></span><span class="tick" data-plate="2"></span><span class="tick" data-plate="3"></span><span class="tick" data-plate="4"></span><span class="tick" data-plate="5"></span><span class="tick" data-plate="6"></span><span class="tick" data-plate="7"></span><span class="tick" data-plate="8"></span><span class="tick" data-plate="9"></span><span class="tick" data-plate="10"></span></span>
+          <p class="places-count" data-camp-slots>10 von 10 Plätzen frei</p>
+        </div>
+        <img class="cut cut--cherries" src="assets/photos/cut-cherries.webp" width="451" height="700" alt="" aria-hidden="true" data-cut>
+      </div>
+    </section>
+
+    <section class="statement" aria-labelledby="statement-label">
+      <div class="wrap">
+        <p class="label" id="statement-label">Das Angebot</p>
+        <p class="statement-text" data-fill><span class="w">Zehn</span> <span class="w">Lokale</span> <span class="w">bekommen</span> <span class="w">ihre</span> <span class="w">eigene</span> <span class="w">Website</span> <span class="w">zum</span> <span class="w">Launch-Preis</span> <span class="w">–</span> <span class="w">angerichtet</span> <span class="w">wie</span> <span class="w">Ihre</span> <span class="w">Karte,</span> <span class="w">gebaut</span> <span class="w">für</span> <span class="w">das</span> <span class="w">Telefon</span> <span class="w">in</span> <span class="w">der</span> <span class="w">Hand</span> <span class="w">Ihrer</span> <span class="w">Gäste</span> <span class="w">und</span> <span class="w">zu</span> <span class="w">finden,</span> <span class="w">wenn</span> <span class="w">heute</span> <span class="w">Abend</span> <span class="w">jemand</span> <span class="w">Hunger</span> <span class="w">hat.</span></p>
+      </div>
+      <img class="cut cut--glass" src="assets/photos/cut-glass.webp" width="502" height="700" alt="" aria-hidden="true" data-cut>
+    </section>
+
+    <section class="arch" aria-labelledby="arch-line" data-arch>
+      <div class="arch-sticky">
+        <figure class="arch-frame" data-arch-frame><img loading="lazy" decoding="async" src="assets/photos/arch-bar.webp" width="1600" height="1073" alt="Eine Bar mit hinterleuchteten Flaschen, Rattanhockern und zwei kirschroten Lampenschirmen vor einer hellen Wand mit Rundbogen."></figure>
+        <p class="arch-line" id="arch-line">Treten Sie ein.</p>
       </div>
     </section>
 
     <section class="karte" id="karte" aria-labelledby="karte-title">
       <div class="wrap">
-        <div class="sheet">
-          <div class="sec-head" data-reveal>
-            <div>
-              <p class="label">01 / Die Karte</p>
-              <h2 id="karte-title">Drei Gänge. <em>Ein Fixpreis.</em></h2>
-            </div>
-            <p class="sec-intro">Wie auf der Karte: drei Gänge, der Preis steht dabei. Launch-Preise für die ersten zehn Lokale, verglichen mit dem österreichischen Marktdurchschnitt.</p>
+        <div class="sec-head">
+          <div>
+            <p class="label">Die Karte</p>
+            <h2 id="karte-title">Drei Gänge. <em>Ein Fixpreis.</em></h2>
           </div>
-          <ol class="courses">
-          <li class="course" data-package="website" data-reveal>
-            <div class="course-plate" aria-hidden="true">
-              <span class="course-num">01</span>
-              <span class="course-chip">Launch-Aktion</span>
-              
-            </div>
-            <div class="course-body">
-              <h3><span class="course-name">Gang 1 · Website</span><span class="course-title">Gut anrichten.</span></h3>
-              <p class="course-price"><span class="plan-from">ab</span> <span class="plan-amount" data-camp-pkg="website">€ 500</span> <span class="plan-unit">einmalig · netto</span></p>
-              <p class="plan-then" data-camp-then="website">Launch-Preis bis 15.11.2026</p>
-              <ul class="course-includes"><li>Karte, Zeiten, Team, Anfahrt</li><li>Reservierungs- und Bestelllinks</li><li>Eine Seite für ein Lokal, in Ihrem Stil</li></ul>
-              <p class="course-market"><span class="course-market-label">Österreichischer Marktdurchschnitt</span><span class="leader" aria-hidden="true"></span><a class="course-market-value" href="#marktquellen">€ 2.250</a></p>
-              <a class="course-choose" href="?package=website#reservierung" data-choose-package="website"><span>Diesen Gang wählen</span><span class="sr-only" data-chosen></span><span class="arrow" aria-hidden="true">→</span></a>
-            </div>
+          <p class="sec-intro">Wie auf der Karte: drei Gänge, der Preis steht dabei. Launch-Preise für die ersten zehn Lokale, verglichen mit dem österreichischen Marktdurchschnitt.</p>
+        </div>
+        <ol class="cards" data-rail>
+          <li class="card" data-package="website" data-reveal-card>
+            <article aria-labelledby="course-website">
+              <div class="card-photo">
+                <img loading="lazy" decoding="async" src="assets/photos/course-1.webp" width="1195" height="1600" alt="Kärntner Kasnudeln mit brauner Butter und Schnittlauch auf einem hellen Teller, daneben eine kirschrote Serviette und eine Gabel.">
+                <p class="card-band"><span>Gang 1 · Website</span></p>
+                <div class="card-foot">
+                  <h3 class="card-title" id="course-website">Gut anrichten.</h3>
+                  <p class="course-price"><span class="plan-from">ab</span> <span class="plan-amount" data-camp-pkg="website">€ 500</span> <span class="plan-unit">einmalig · netto</span></p>
+                  <p class="plan-then" data-camp-then="website">Launch-Preis bis 15.11.2026</p>
+                  <p class="card-market">Österreichischer Marktdurchschnitt <a href="#marktquellen">€ 2.250</a></p>
+                  <a class="arrow-link" href="?package=website#reservierung" data-choose-package="website"><span>Diesen Gang wählen</span><span class="sr-only" data-chosen></span><span class="arrow-dot" aria-hidden="true"></span></a>
+                </div>
+              </div>
+              <ul class="card-includes"><li>Karte, Zeiten, Team, Anfahrt</li><li>Reservierungs- und Bestelllinks</li><li>Eine Seite für ein Lokal, in Ihrem Stil</li></ul>
+            </article>
           </li>
-          <li class="course course--featured" data-package="website-seo" data-reveal>
-            <div class="course-plate" aria-hidden="true">
-              <span class="course-num">02</span>
-              <span class="course-chip">Launch-Aktion</span>
-              <span class="course-chip course-chip--right">Empfehlung des Hauses</span>
-            </div>
-            <div class="course-body">
-              <h3><span class="course-name">Gang 2 · Website + Google SEO</span><span class="course-title">Gefunden werden.</span></h3>
-              <p class="course-price"><span class="plan-from">ab</span> <span class="plan-amount" data-camp-pkg="website-seo">€ 700</span> <span class="plan-unit">einmalig · netto</span></p>
-              <p class="plan-then" data-camp-then="website-seo">Launch-Preis bis 15.11.2026</p>
-              <ul class="course-includes"><li>Alles aus „Website“</li><li>Google SEO für Ihre Stadt</li><li>Search Console eingerichtet</li></ul>
-              <p class="course-market"><span class="course-market-label">Österreichischer Marktdurchschnitt</span><span class="leader" aria-hidden="true"></span><a class="course-market-value" href="#marktquellen">€ 3.500</a></p>
-              <a class="course-choose" href="?package=website-seo#reservierung" data-choose-package="website-seo"><span>Diesen Gang wählen</span><span class="sr-only" data-chosen></span><span class="arrow" aria-hidden="true">→</span></a>
-            </div>
+          <li class="card card--featured" data-package="website-seo" data-reveal-card>
+            <article aria-labelledby="course-website-seo">
+              <div class="card-photo">
+                <img loading="lazy" decoding="async" src="assets/photos/course-2.webp" width="1195" height="1600" alt="Das leuchtende Fenster eines kleinen Restaurants zur blauen Stunde; ein Passant bleibt auf dem Kopfsteinpflaster stehen und schaut hinein.">
+                <p class="card-band"><span>Gang 2 · Website + Google SEO</span><span class="card-flag">Empfehlung des Hauses</span></p>
+                <div class="card-foot">
+                  <h3 class="card-title" id="course-website-seo">Gefunden werden.</h3>
+                  <p class="course-price"><span class="plan-from">ab</span> <span class="plan-amount" data-camp-pkg="website-seo">€ 700</span> <span class="plan-unit">einmalig · netto</span></p>
+                  <p class="plan-then" data-camp-then="website-seo">Launch-Preis bis 15.11.2026</p>
+                  <p class="card-market">Österreichischer Marktdurchschnitt <a href="#marktquellen">€ 3.500</a></p>
+                  <a class="arrow-link" href="?package=website-seo#reservierung" data-choose-package="website-seo"><span>Diesen Gang wählen</span><span class="sr-only" data-chosen></span><span class="arrow-dot" aria-hidden="true"></span></a>
+                </div>
+              </div>
+              <ul class="card-includes"><li>Alles aus „Website“</li><li>Google SEO für Ihre Stadt</li><li>Search Console eingerichtet</li></ul>
+            </article>
           </li>
-          <li class="course" data-package="website-seo-social" data-reveal>
-            <div class="course-plate" aria-hidden="true">
-              <span class="course-num">03</span>
-              <span class="course-chip">Launch-Aktion</span>
-              
-            </div>
-            <div class="course-body">
-              <h3><span class="course-name">Gang 3 · Website + SEO + Social</span><span class="course-title">Im Gespräch bleiben.</span></h3>
-              <p class="course-price"><span class="plan-from">ab</span> <span class="plan-amount" data-camp-pkg="website-seo-social">€ 990</span> <span class="plan-unit">einmalig · netto</span></p>
-              <p class="plan-then" data-camp-then="website-seo-social">Launch-Preis bis 15.11.2026</p>
-              <ul class="course-includes"><li>Alles aus „Website + Google SEO“</li><li>Ein Monat Social Media</li><li>1 KI-Video + 4 Posts, ein Kanal</li></ul>
-              <p class="course-market"><span class="course-market-label">Österreichischer Marktdurchschnitt</span><span class="leader" aria-hidden="true"></span><a class="course-market-value" href="#marktquellen">€ 3.950</a></p>
-              <a class="course-choose" href="?package=website-seo-social#reservierung" data-choose-package="website-seo-social"><span>Diesen Gang wählen</span><span class="sr-only" data-chosen></span><span class="arrow" aria-hidden="true">→</span></a>
-            </div>
+          <li class="card" data-package="website-seo-social" data-reveal-card>
+            <article aria-labelledby="course-website-seo-social">
+              <div class="card-photo">
+                <img loading="lazy" decoding="async" src="assets/photos/course-3.webp" width="1195" height="1600" alt="Freunde stoßen mit Rotwein über einem Tisch voller geteilter Teller an.">
+                <p class="card-band"><span>Gang 3 · Website + SEO + Social</span></p>
+                <div class="card-foot">
+                  <h3 class="card-title" id="course-website-seo-social">Im Gespräch bleiben.</h3>
+                  <p class="course-price"><span class="plan-from">ab</span> <span class="plan-amount" data-camp-pkg="website-seo-social">€ 990</span> <span class="plan-unit">einmalig · netto</span></p>
+                  <p class="plan-then" data-camp-then="website-seo-social">Launch-Preis bis 15.11.2026</p>
+                  <p class="card-market">Österreichischer Marktdurchschnitt <a href="#marktquellen">€ 3.950</a></p>
+                  <a class="arrow-link" href="?package=website-seo-social#reservierung" data-choose-package="website-seo-social"><span>Diesen Gang wählen</span><span class="sr-only" data-chosen></span><span class="arrow-dot" aria-hidden="true"></span></a>
+                </div>
+              </div>
+              <ul class="card-includes"><li>Alles aus „Website + Google SEO“</li><li>Ein Monat Social Media</li><li>1 KI-Video + 4 Posts, ein Kanal</li></ul>
+            </article>
           </li>
-          </ol>
-          <div class="menu-foot">
-            <div class="extras" data-reveal>
-              <h3 class="field-label">Dazu bestellen</h3>
-              <ul class="menu-list"><li><span class="menu-item"><strong>Google-Unternehmensprofil</strong><small>Adresse, Zeiten, Karte und Bilder – richtig und aktuell.</small></span><span class="leader" aria-hidden="true"></span><span class="menu-price">€ 150<small>einmalig</small></span></li><li><span class="menu-item"><strong>Instagram: Profil, Bio &amp; 4 Highlight-Cover</strong><small>Sofort klar: Küche, Ort, Reservierung.</small></span><span class="leader" aria-hidden="true"></span><span class="menu-price">€ 150<small>einmalig</small></span></li><li><span class="menu-item"><strong>Website-Pflege</strong><small>Neue Karte, neue Zeiten – Sie melden sich, wir pflegen ein.</small></span><span class="leader" aria-hidden="true"></span><span class="menu-price">€ 39<small>/ Monat</small></span></li></ul>
-            </div>
-            <div class="value" data-reveal>
-              <h3 class="field-label">In jedem Gang</h3>
-              <ul><li><strong>Eigenes Design</strong><span>Keine Vorlage.</span></li><li><strong>Smartphone zuerst</strong><span>Und auf dem Desktop.</span></li><li><strong>Fixpreis vorab</strong><span>Schriftlich, vor dem Start.</span></li><li><strong>Übergabe inklusive</strong><span>2 Korrekturrunden, 60 Minuten.</span></li></ul>
-            </div>
+        </ol>
+        <p class="rail-count" aria-hidden="true" data-rail-count>1 / 3</p>
+        <div class="menu-foot">
+          <div class="extras">
+            <h3 class="label">Dazu bestellen</h3>
+            <ul class="menu-list"><li><span class="menu-item"><strong>Google-Unternehmensprofil</strong><small>Adresse, Zeiten, Karte und Bilder – richtig und aktuell.</small></span><span class="menu-price">€ 150<small>einmalig</small></span></li><li><span class="menu-item"><strong>Instagram: Profil, Bio &amp; 4 Highlight-Cover</strong><small>Sofort klar: Küche, Ort, Reservierung.</small></span><span class="menu-price">€ 150<small>einmalig</small></span></li><li><span class="menu-item"><strong>Website-Pflege</strong><small>Neue Karte, neue Zeiten – Sie melden sich, wir pflegen ein.</small></span><span class="menu-price">€ 39<small>/ Monat</small></span></li></ul>
           </div>
-          <p class="menu-note">Mehr Seiten, Standorte oder Sprachen nach Umfang. Nicht enthalten: Domain, Hosting, Gebühren für Reservierungs- oder Bestellsysteme, Fotoshooting, Rechtstexte, Werbebudget. Keine Garantie für Rankings oder Reservierungen.</p>
-          <div class="menu-sources" id="marktquellen">
-            <h3 class="field-label">Woher die Marktdurchschnitte kommen</h3>
-            <ul><li><span class="menu-source-what">Landingpage (eine Seite): € 1.500–€ 3.000</span><a href="https://exponent.at/blog/was-kostet-eine-website-oesterreich-2026" target="_blank" rel="noopener noreferrer">exponent.at — Was kostet eine Website in Österreich? (2026)<span class="sr-only"> (öffnet in neuem Tab)</span> <span aria-hidden="true">↗</span></a></li><li><span class="menu-source-what">Technisches SEO, einmalig: € 500–€ 2.000</span><a href="https://exponent.at/blog/was-kostet-eine-website-oesterreich-2026" target="_blank" rel="noopener noreferrer">exponent.at — Was kostet eine Website in Österreich? (2026)<span class="sr-only"> (öffnet in neuem Tab)</span> <span aria-hidden="true">↗</span></a></li><li><span class="menu-source-what">Social Media, Basispaket (2–4 Posts, ein Kanal), pro Monat: € 300–€ 600</span><a href="https://diemarketingnerds.com/magazin/social-media-betreuung-kosten/" target="_blank" rel="noopener noreferrer">Die Marketing Nerds (Graz) — Social Media Betreuung: Kosten<span class="sr-only"> (öffnet in neuem Tab)</span> <span aria-hidden="true">↗</span></a></li></ul>
-            <p>Spannen, die österreichische Agenturen auf ihren eigenen Seiten veröffentlichen, netto ohne USt., 2026. Ein Marktdurchschnitt ist hier die Mitte der Spanne; Pakete addieren die Spannen, die sie enthalten. Sie sind ein Richtwert, kein Angebot. Unsere regulären Preise geben wir nach der Beratung mit unserem Steuerberatungsteam bekannt.</p>
+          <div class="value">
+            <h3 class="label">In jedem Gang</h3>
+            <ul><li><strong>Eigenes Design</strong><span>Keine Vorlage.</span></li><li><strong>Smartphone zuerst</strong><span>Und auf dem Desktop.</span></li><li><strong>Fixpreis vorab</strong><span>Schriftlich, vor dem Start.</span></li><li><strong>Übergabe inklusive</strong><span>2 Korrekturrunden, 60 Minuten.</span></li></ul>
           </div>
+        </div>
+        <p class="menu-note">Mehr Seiten, Standorte oder Sprachen nach Umfang. Nicht enthalten: Domain, Hosting, Gebühren für Reservierungs- oder Bestellsysteme, Fotoshooting, Rechtstexte, Werbebudget. Keine Garantie für Rankings oder Reservierungen.</p>
+        <div class="menu-sources" id="marktquellen">
+          <h3 class="label">Woher die Marktdurchschnitte kommen</h3>
+          <ul><li><span class="menu-source-what">Landingpage (eine Seite): € 1.500–€ 3.000</span><a href="https://exponent.at/blog/was-kostet-eine-website-oesterreich-2026" target="_blank" rel="noopener noreferrer">exponent.at — Was kostet eine Website in Österreich? (2026)<span class="sr-only"> (öffnet in neuem Tab)</span> <span aria-hidden="true">↗</span></a></li><li><span class="menu-source-what">Technisches SEO, einmalig: € 500–€ 2.000</span><a href="https://exponent.at/blog/was-kostet-eine-website-oesterreich-2026" target="_blank" rel="noopener noreferrer">exponent.at — Was kostet eine Website in Österreich? (2026)<span class="sr-only"> (öffnet in neuem Tab)</span> <span aria-hidden="true">↗</span></a></li><li><span class="menu-source-what">Social Media, Basispaket (2–4 Posts, ein Kanal), pro Monat: € 300–€ 600</span><a href="https://diemarketingnerds.com/magazin/social-media-betreuung-kosten/" target="_blank" rel="noopener noreferrer">Die Marketing Nerds (Graz) — Social Media Betreuung: Kosten<span class="sr-only"> (öffnet in neuem Tab)</span> <span aria-hidden="true">↗</span></a></li></ul>
+          <p>Spannen, die österreichische Agenturen auf ihren eigenen Seiten veröffentlichen, netto ohne USt., 2026. Ein Marktdurchschnitt ist hier die Mitte der Spanne; Pakete addieren die Spannen, die sie enthalten. Sie sind ein Richtwert, kein Angebot. Unsere regulären Preise geben wir nach der Beratung mit unserem Steuerberatungsteam bekannt.</p>
         </div>
       </div>
     </section>
 
     <section class="campaign" id="launch" aria-labelledby="campaign-label" data-campaign>
-      <div class="wrap campaign-inner">
-        <div class="campaign-head">
-          <p class="label campaign-label" id="campaign-label" data-camp="label"></p>
-          <p class="campaign-claim"><span class="sheen" data-camp="claim" data-text=""></span> <a class="campaign-source" href="#marktquellen" data-camp="source"></a></p>
-        </div>
-        <div class="campaign-mid">
-          <p class="campaign-count" role="timer" data-camp="count"><span class="campaign-ends" data-camp="ends"></span> <span class="campaign-units" data-camp="units" aria-hidden="true"></span></p>
-          <p class="campaign-slots" data-camp="slots"></p>
-        </div>
-        <div class="campaign-foot">
-          <p class="campaign-regular" data-camp="after"></p>
-          <a class="campaign-cta" href="#karte" data-camp="cta"></a>
-          <p class="campaign-risk" data-camp="risk"></p>
-        </div>
+      <figure class="campaign-photo"><img loading="lazy" decoding="async" src="assets/photos/food-4.webp" width="1100" height="1100" alt="Ein kirschroter Cocktail in einer Coupette auf einer dunklen Holzbar, dahinter leuchtende Flaschen."></figure>
+      <div class="campaign-block">
+        <p class="label campaign-label" id="campaign-label" data-camp="label"></p>
+        <p class="campaign-claim"><span data-camp="claim"></span></p>
+        <a class="campaign-source" href="#marktquellen" data-camp="source"></a>
+        <p class="campaign-count" role="timer" data-camp="count"><span class="campaign-ends" data-camp="ends"></span> <span class="campaign-units" data-camp="units" aria-hidden="true"></span></p>
+        <p class="campaign-slots" data-camp="slots"></p>
+        <p class="campaign-regular" data-camp="after"></p>
+        <a class="btn btn--light campaign-cta" href="#karte" data-camp="cta"></a>
+        <p class="campaign-risk" data-camp="risk"></p>
       </div>
     </section>
 
-    <section class="example" id="beispiel" aria-labelledby="example-title">
-      <div class="wrap example-grid">
-        <div class="example-copy" data-reveal>
-          <p class="label">02 / Aus der Küche</p>
+    <section class="marquee" aria-label="Für Restaurants, Cafés, Bäckereien und Bars." data-marquee>
+      <div class="mq-track" aria-hidden="true" data-mq-track><span class="mq-word">Restaurant</span><img class="mq-card" src="assets/photos/food-1.webp" width="1100" height="1100" alt="" loading="lazy" decoding="async"><span class="mq-word mq-word--accent">Café</span><img class="mq-card" src="assets/photos/food-2.webp" width="1100" height="1100" alt="" loading="lazy" decoding="async"><span class="mq-word">Bäckerei</span><img class="mq-card" src="assets/photos/food-3.webp" width="1100" height="1100" alt="" loading="lazy" decoding="async"><span class="mq-word mq-word--accent">Bar</span><span class="mq-dot"></span><span class="mq-word">Restaurant</span><img class="mq-card" src="assets/photos/food-1.webp" width="1100" height="1100" alt="" loading="lazy" decoding="async"><span class="mq-word mq-word--accent">Café</span><img class="mq-card" src="assets/photos/food-2.webp" width="1100" height="1100" alt="" loading="lazy" decoding="async"><span class="mq-word">Bäckerei</span><img class="mq-card" src="assets/photos/food-3.webp" width="1100" height="1100" alt="" loading="lazy" decoding="async"><span class="mq-word mq-word--accent">Bar</span><span class="mq-dot"></span></div>
+    </section>
+
+    <section class="example" id="beispiel" aria-labelledby="example-title" data-door>
+      <figure class="example-bg">
+        <picture>
+          <source media="(max-width: 1023px)" srcset="assets/savra/cover-portrait.jpg">
+          <img loading="lazy" decoding="async" src="assets/savra/cover.jpg" width="1440" height="810" alt="Screenshot der SAVRA-Konzeptwebsite: große Serifen-Buchstaben SAVRA vor einer petrolblauen Wand, dazwischen der Blick durch eine Tür auf einen gedeckten Tisch mit Lampe.">
+        </picture>
+        <video class="door-video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-door-video data-src-wide="assets/savra/loop.mp4" data-src-narrow="assets/savra/loop-portrait.mp4"></video>
+      </figure>
+      <div class="wrap example-wrap">
+        <article class="savra-panel" data-concept="savra" aria-labelledby="example-title" data-reveal>
+          <p class="label">Aus der Küche</p>
           <h2 id="example-title">Durch die blaue Tür <em>in den Raum.</em></h2>
           <p class="example-intro">SAVRA ist eine Konzeptwebsite für ein Restaurant in Wien: ein Scroll führt durch die Tür an den gedeckten Tisch. Ihre Website bekommt eine eigene Gestaltung – Ihre Karte, Ihre Zeiten, Ihre Reservierung.</p>
-          <button class="text-button motion-toggle js-only" type="button" aria-pressed="false" data-motion-toggle>Bewegung pausieren</button>
-        </div>
-        <article class="concept" data-concept="savra" aria-labelledby="c-savra" data-reveal>
-          <figure class="door" data-door>
-            <div class="door-frame">
-              <picture>
-                <source media="(min-width: 1024px)" srcset="assets/savra/cover-portrait.jpg">
-                <img loading="lazy" decoding="async" src="assets/savra/cover.jpg" width="1440" height="810" alt="Screenshot der SAVRA-Konzeptwebsite: große Serifen-Buchstaben SAVRA vor einer petrolblauen Wand, dazwischen der Blick durch eine Tür auf einen gedeckten Tisch mit Lampe.">
-              </picture>
-              <video class="door-video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-door-video data-src-wide="assets/savra/loop-portrait.mp4" data-src-narrow="assets/savra/loop.mp4"></video>
-              <span class="door-inner" aria-hidden="true"></span>
-              <span class="door-tag" aria-hidden="true">SAVRA</span>
-            </div>
-            <figcaption class="caption door-caption">Echte Aufnahme der Konzeptwebsite · bewegt sich bei Berührung</figcaption>
-          </figure>
-          <div class="concept-meta">
-            <div class="concept-title"><h3 id="c-savra">SAVRA</h3><p class="status">Konzeptwebsite · kein Kundenauftrag</p></div>
-            <div class="concept-actions">
-              <a class="live" href="https://rustamg16.github.io/Savra_v2/" target="_blank" rel="noopener noreferrer"><span>Live-Demo öffnen</span><span class="sr-only"> (öffnet in neuem Tab)</span><span class="arrow" aria-hidden="true">↗</span></a>
-              <a class="choose" href="?example=savra#reservierung" data-choose="savra"><span>Diese Richtung wählen</span><span class="sr-only" data-chosen></span><span class="arrow" aria-hidden="true">→</span></a>
-            </div>
+          <p class="status">SAVRA · Konzeptwebsite · kein Kundenauftrag</p>
+          <div class="savra-actions">
+            <a class="arrow-link" href="https://rustamg16.github.io/Savra_v2/" target="_blank" rel="noopener noreferrer"><span>Live-Demo öffnen</span><span class="sr-only"> (öffnet in neuem Tab)</span><span class="arrow-dot" aria-hidden="true"></span></a>
+            <a class="arrow-link" href="?example=savra#reservierung" data-choose="savra"><span>Diese Richtung wählen</span><span class="sr-only" data-chosen></span><span class="arrow-dot" aria-hidden="true"></span></a>
           </div>
+          <p class="caption">Echte Aufnahme der Konzeptwebsite · bewegt sich bei Berührung</p>
+          <button class="text-button motion-toggle js-only" type="button" aria-pressed="false" data-motion-toggle>Bewegung pausieren</button>
         </article>
       </div>
     </section>
 
     <section class="process" id="ablauf" aria-labelledby="process-title">
       <div class="wrap">
-        <div class="sec-head" data-reveal>
+        <div class="sec-head">
           <div>
-            <p class="label">03 / Ablauf</p>
+            <p class="label">Ablauf</p>
             <h2 id="process-title">Vom Gespräch <em>zum Tisch.</em></h2>
           </div>
+          <img class="cut cut--cup" src="assets/photos/cut-cup.webp" width="700" height="537" alt="" aria-hidden="true" data-cut>
         </div>
         <ol class="steps" data-reveal-group><li><span class="step-num" aria-hidden="true">01</span><h3>Kennenlernen</h3><p>Ihr Lokal, Ihre Gäste, Ihre Karte.</p></li><li><span class="step-num" aria-hidden="true">02</span><h3>Abschmecken</h3><p>Gestaltung und Texte in Ihrem Stil, zwei Korrekturrunden.</p></li><li><span class="step-num" aria-hidden="true">03</span><h3>Servieren</h3><p>Veröffentlichen, prüfen, übergeben – mit 60 Minuten Einführung.</p></li></ol>
       </div>
@@ -213,69 +219,85 @@
 
     <section class="inquiry" id="reservierung" aria-labelledby="inquiry-title">
       <div class="wrap">
-        <div class="sheet sheet--inquiry">
-          <div class="inquiry-grid">
-            <div class="inquiry-intro" data-reveal>
-              <p class="label">04 / Reservierung</p>
-              <h2 id="inquiry-title" tabindex="-1">Reservieren Sie <em>Ihren Platz.</em></h2>
-              <p>Erzählen Sie uns von Ihrem Lokal – zwei Sätze genügen.</p>
-              <p class="demo-note">Demo: Hier wird keine Nachricht versendet. Sie bereiten Ihren Anfragetext vor und kopieren ihn.</p>
-            </div>
-            <div class="composer" role="group" aria-labelledby="inquiry-title" data-reveal>
-              <div class="selection js-only" role="group" aria-labelledby="sel-label">
-                <span class="field-label" id="sel-label">Gewählte Richtung</span>
-                <strong class="selection-value" data-selection-name>Noch offen</strong>
-                <button class="text-button" type="button" data-clear aria-disabled="true">Auswahl entfernen</button>
-              </div>
-              <div class="selection js-only" role="group" aria-labelledby="pkg-label">
-                <span class="field-label" id="pkg-label">Gewählter Gang</span>
-                <strong class="selection-value" data-package-name>Noch offen</strong>
-                <button class="text-button" type="button" data-clear-package aria-disabled="true">Gang entfernen</button>
-              </div>
-              <div class="fields-2 js-only">
-                <div><label class="field-label" for="f-business">Name des Lokals</label><input id="f-business" type="text" autocomplete="organization" maxlength="120"></div>
-                <div><label class="field-label" for="f-location">Ort (optional)</label><input id="f-location" type="text" maxlength="120"></div>
-              </div>
-              <div class="js-only"><label class="field-label" for="f-message">Ihre Idee</label><textarea id="f-message" rows="3" maxlength="1200"></textarea></div>
-              <div>
-                <label class="field-label" for="inquiry-preview">Ihr Anfragetext</label>
-                <textarea class="preview" id="inquiry-preview" rows="6" readonly data-preview>Ich interessiere mich für eine individuelle Website für mein Lokal. Lokal: … Ort: … Richtung: … Gang: … Meine Idee: …</textarea>
-              </div>
-              <p class="fallback nojs-only">Ohne JavaScript: Kopieren Sie diese Vorlage und ergänzen Sie Lokal, Ort, Richtung, gewünschten Gang und Ihre Idee.</p>
-              <div class="composer-actions js-only">
-                <button class="pill pill--accent" type="button" data-copy>Anfragetext kopieren</button>
-              </div>
-              <p class="status" role="status" aria-live="polite" data-status></p>
-            </div>
+        <div class="inquiry-grid">
+          <div class="inquiry-intro" data-reveal>
+            <p class="label">Reservierung</p>
+            <h2 id="inquiry-title" tabindex="-1">Reservieren Sie <em>Ihren Platz.</em></h2>
+            <p>Erzählen Sie uns von Ihrem Lokal – zwei Sätze genügen.</p>
+            <p class="demo-note">Demo: Hier wird keine Nachricht versendet. Sie bereiten Ihren Anfragetext vor und kopieren ihn.</p>
           </div>
-          <div class="faq" data-reveal>
-            <h2>Häufige <em>Fragen</em></h2>
-            <div class="faq-list"><details><summary>Ist das eine fertige Vorlage?</summary><p>Nein. SAVRA zeigt eine Richtung; Ihre Website wird für Ihr Lokal gestaltet.</p></details><details><summary>Kann meine Reservierung eingebunden werden?</summary><p>Vorhandene Reservierungs- oder Bestelllinks ja. Weitere Integrationen hängen vom Anbieter ab.</p></details><details><summary>Was kostet eine Website?</summary><p>Ab € 500 netto für eine einseitige Website – der Launch-Preis für die ersten zehn Lokale. Den Endpreis bestätigen wir vor dem Start schriftlich.</p></details><details><summary>Ist SAVRA ein Kundenprojekt?</summary><p>Nein. SAVRA ist eine Konzeptwebsite von Convenium, kein Kundenauftrag.</p></details></div>
+          <div class="composer" role="group" aria-labelledby="inquiry-title" data-reveal>
+            <div class="selection js-only" role="group" aria-labelledby="sel-label">
+              <span class="field-label" id="sel-label">Gewählte Richtung</span>
+              <strong class="selection-value" data-selection-name>Noch offen</strong>
+              <button class="text-button" type="button" data-clear aria-disabled="true">Auswahl entfernen</button>
+            </div>
+            <div class="selection js-only" role="group" aria-labelledby="pkg-label">
+              <span class="field-label" id="pkg-label">Gewählter Gang</span>
+              <strong class="selection-value" data-package-name>Noch offen</strong>
+              <button class="text-button" type="button" data-clear-package aria-disabled="true">Gang entfernen</button>
+            </div>
+            <div class="fields-2 js-only">
+              <div><label class="field-label" for="f-business">Name des Lokals</label><input id="f-business" type="text" autocomplete="organization" maxlength="120"></div>
+              <div><label class="field-label" for="f-location">Ort (optional)</label><input id="f-location" type="text" maxlength="120"></div>
+            </div>
+            <div class="js-only"><label class="field-label" for="f-message">Ihre Idee</label><textarea id="f-message" rows="3" maxlength="1200"></textarea></div>
+            <div>
+              <label class="field-label" for="inquiry-preview">Ihr Anfragetext</label>
+              <textarea class="preview" id="inquiry-preview" rows="7" readonly data-preview>Ich interessiere mich für eine individuelle Website für mein Lokal. Lokal: … Ort: … Richtung: … Gang: … Meine Idee: …</textarea>
+            </div>
+            <p class="fallback nojs-only">Ohne JavaScript: Kopieren Sie diese Vorlage und ergänzen Sie Lokal, Ort, Richtung, gewünschten Gang und Ihre Idee.</p>
+            <div class="composer-actions js-only">
+              <button class="btn btn--solid" type="button" data-copy>Anfragetext kopieren</button>
+            </div>
+            <p class="status-line" role="status" aria-live="polite" data-status></p>
           </div>
+        </div>
+        <div class="faq" data-reveal>
+          <h2>Häufige <em>Fragen</em></h2>
+          <div class="faq-list"><details><summary>Ist das eine fertige Vorlage?<span class="faq-mark" aria-hidden="true"></span></summary><p>Nein. SAVRA zeigt eine Richtung; Ihre Website wird für Ihr Lokal gestaltet.</p></details><details><summary>Kann meine Reservierung eingebunden werden?<span class="faq-mark" aria-hidden="true"></span></summary><p>Vorhandene Reservierungs- oder Bestelllinks ja. Weitere Integrationen hängen vom Anbieter ab.</p></details><details><summary>Was kostet eine Website?<span class="faq-mark" aria-hidden="true"></span></summary><p>Ab € 500 netto für eine einseitige Website – der Launch-Preis für die ersten zehn Lokale. Den Endpreis bestätigen wir vor dem Start schriftlich.</p></details><details><summary>Ist SAVRA ein Kundenprojekt?<span class="faq-mark" aria-hidden="true"></span></summary><p>Nein. SAVRA ist eine Konzeptwebsite von Convenium, kein Kundenauftrag.</p></details></div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-id">
-          <p class="footer-line">Convenium · Gastronomie · Klagenfurt</p>
+  <a class="btn btn--solid sticky-cta js-only" href="#karte" data-sticky data-label-later="Platz reservieren">Zur Karte</a>
+
+  <nav class="tabbar" aria-label="Mobile Navigation">
+    <a href="#karte" data-tab="karte"><span class="tab-icon tab-icon--menu" aria-hidden="true"></span>Die Karte</a>
+    <a href="#beispiel" data-tab="beispiel"><span class="tab-icon tab-icon--door" aria-hidden="true"></span>Beispiel</a>
+    <a href="#ablauf" data-tab="ablauf"><span class="tab-icon tab-icon--steps" aria-hidden="true"></span>Ablauf</a>
+    <a class="tabbar-cta" href="#reservierung" data-tab="reservierung">Platz reservieren</a>
+  </nav>
+
+  <footer class="site-footer" id="fusszeile">
+    <div class="wrap footer-grid">
+      <div class="footer-studio">
+        <img class="footer-photo" loading="lazy" decoding="async" src="assets/photos/chef.webp" width="1195" height="1600" alt="Hände eines Kochs richten mit einer Pinzette einen Teller an.">
+        <div>
+          <p class="footer-about">Convenium gestaltet Websites für Lokale in Klagenfurt und Kärnten – jede eigens für ihr Haus.</p>
+          <p class="label label--rose">Kontakt</p>
           <p class="footer-contact"><a href="mailto:convenium@outlook.com">convenium@outlook.com</a><a href="tel:+4369010682073">+43 690 10682073</a></p>
         </div>
-        <nav class="footer-links" aria-label="Fußnavigation">
-          <a href="#karte">Die Karte</a><a href="#beispiel">Beispiel</a><a href="#ablauf">Ablauf</a>
-          <a href="#reservierung">Platz reservieren</a>
-          <a href="en/" hreflang="en" lang="en" data-locale-link data-base="en/">English</a>
-          <a href="#top">Nach oben ↑</a>
-        </nav>
       </div>
-      <p class="footer-brand"><a href="https://convenium.at/" aria-label="Convenium Studio, Startseite">CONVENIUM<span>.</span></a></p>
-      <div class="footer-bottom">
-        <p class="footer-legal"><span>Demo-Vorschau · keine Veröffentlichung, kein Versand</span><a href="impressum/">Impressum</a><a href="datenschutz/">Datenschutz</a></p>
-        <p>© 2026 Convenium</p>
+      <nav class="footer-nav" aria-label="Fußnavigation">
+        <p class="label label--rose">Navigation</p>
+        <a href="#karte">Die Karte</a><a href="#beispiel">Beispiel</a><a href="#ablauf">Ablauf</a>
+        <a href="#reservierung">Platz reservieren</a>
+        <a href="en/" hreflang="en" lang="en" data-locale-link data-base="en/">English</a>
+        <a href="#top">Nach oben</a>
+      </nav>
+      <div class="footer-places">
+        <p class="label label--rose">Launch-Plätze</p>
+        <span class="ticks" role="img" aria-label="Zehn Launch-Plätze, einer pro Lokal."><span class="tick" data-plate="1"></span><span class="tick" data-plate="2"></span><span class="tick" data-plate="3"></span><span class="tick" data-plate="4"></span><span class="tick" data-plate="5"></span><span class="tick" data-plate="6"></span><span class="tick" data-plate="7"></span><span class="tick" data-plate="8"></span><span class="tick" data-plate="9"></span><span class="tick" data-plate="10"></span></span>
+        <p class="places-count" data-camp-slots>10 von 10 Plätzen frei</p>
+        <a class="btn btn--light" href="#reservierung">Platz reservieren</a>
       </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <p class="footer-signature"><a href="https://convenium.at/" aria-label="Convenium Studio, Startseite">Convenium · Gastronomie</a></p>
+      <p class="footer-legal"><span>Demo-Vorschau · keine Veröffentlichung, kein Versand</span><a href="impressum/">Impressum</a><a href="datenschutz/">Datenschutz</a></p>
+      <p>© 2026 Convenium</p>
     </div>
   </footer>
 

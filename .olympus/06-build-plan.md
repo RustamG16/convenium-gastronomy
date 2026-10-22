@@ -1,69 +1,148 @@
-# 06 — Build plan: "Die Karte" (Convenium · Gastronomie)
+# 06 — Build plan v2: "Das Lokal" (Convenium · Gastronomie)
 
-## Research basis — Awwwards restaurant sites, 2026
+Supersedes v1 "Die Karte" (2026-10-22, cloud). Rustam rejected v1 the same day: it reused Hair & Beauty's
+repeating elements (paper pill header, cherry pill CTA, glow + sheen cards, giant footer wordmark, numbered
+eyebrows) and had no pictures. His instruction, verbatim intent:
 
-Fetched via web search of awwwards.com listings on 2026-10-22 (direct page fetches were refused by the
-session's egress policy). What repeats across the recognised restaurant and food sites:
+> Make assets with Artlist. Use other design elements. Take tigermilkrestaurants.com/fr/restaurants/lyon-viiie/
+> for animations and ballenacabo.com for layout style (buttons, cards, navbar). More unique, different from
+> Hair & Beauty. Different footer and a different repeating element. Same brand colours, other grades allowed,
+> a different font (trending for restaurants).
 
-| Trait that repeats | Evidence |
+## Research basis
+
+### Owner-named references (observed live in the browser, 2026-10-22, 1440×900)
+
+**Tigermilk Lyon** — https://tigermilkrestaurants.com/fr/restaurants/lyon-viiie/ (motion)
+
+| Move | What it does |
 |---|---|
-| Big, fullscreen imagery and dark, atmospheric grounds | La table de Joakim (Nominee, Aug 2026; tags Big Background Images, Fullscreen, Parallax, GSAP) https://www.awwwards.com/sites/la-table-de-joakim · Restaurant GEM (Nominee, Oct 2025; fullscreen menu, hover dish preview) https://www.awwwards.com/sites/restaurant-gem |
-| Serif, editorial typography for fine dining | Ballena Fine Dining (HM, Jun 2026) https://www.awwwards.com/sites/ballena-fine-dining · Hio Fine Dining (HM) https://www.awwwards.com/sites/hio-fine-dining · Son Daven (SOTD, Jun 2026, 7.62) https://www.awwwards.com/sites/son-daven |
-| Restrained two-colour palettes (cream + red) | Crav Burgers (SOTD, Jun 2026; #f5e3cd + #f91814, loader, page transition, GSAP) https://www.awwwards.com/sites/crav-burgers |
-| Scroll animation, loaders and transitions as the craft signal | Crav Burgers (above) · La table de Joakim (above) · Units by Big Horror Athens (SOTD, Jul 2026; Lottie) https://www.awwwards.com/bighorror/ |
-| The menu as an interactive object | Restaurant GEM (fullscreen menu, on-hover dish preview) · Gourou Indian Food (HM, Feb 2026; menu video, unusual navigation) https://www.awwwards.com/sites/gourou-indian-food |
-| Custom type and illustration for casual concepts | Burrito Madre (HM, Jul 2026; Typography, Illustration, Colorful) https://www.awwwards.com/sites/burrito-madre |
-| Category listings consulted | https://www.awwwards.com/websites/hotel-restaurant/ · https://www.awwwards.com/websites/food-drink/ · De Groene Afslag (HM, Jul 2026), Lingers (HM, Aug 2026), Délice (HM, Sep 2026) |
+| Split hero | Left half full-height photo/video, right half cream with a huge condensed word ("LYON"), small eyebrow, an engraved botanical cut-out |
+| Word-fill statement | A big centred caps paragraph whose words fill colour one by one as you scroll (pale → accent → ink), an engraved collage object floating over it |
+| Growing arch | A photo masked as a round-top arch, small and centred, grows to full-bleed as you scroll; a second, smaller photo pops in over it |
+| Ruled word stack | Giant words stacked between horizontal hairlines, revealed row by row |
+| Section colour shift | The ground changes from cream to deep green; the header follows |
+| Horizontal word marquee | Giant condensed words travel sideways with scroll, rounded photo cards interleaved |
+| Engraved cut-outs | Vintage engraving objects (lime, owl, elephant) float and drift; a speech bubble |
+| Sticky CTA | One small black square "Voir la carte" button fixed bottom-centre the whole page |
 
-**Transferable principles → our gastro design DNA** (no distinctive expression copied):
+Type observed: Druk XCondensed / Druk Wide (display), ArcherPro (secondary). Native scroll is replaced by a
+virtual scroller.
 
-1. The page is a menu card. Numbered courses, dotted leaders, the price at the right edge, paper with
-   registration corners. (From "the menu as an interactive object".)
-2. The room is dark, the card is paper. Noir ground for hero, launch module, example and footer; the
-   cotton/paper sheet for the Karte and the reservation. (From the dark grounds.) Our palette already is
-   the cream-and-red pair the best fast-casual site uses; we use it with cherry as the rare accent.
-3. The serif speaks. Newsreader carries every headline; Archivo only prices and numerals. (From the
-   fine-dining serifs; the opposite of Hair & Beauty's Archivo-led chapters.)
-4. One hero moment: the table for ten is set. Ten plates land one after another; they are the ten places,
-   counted live. (From "craft signal through motion", kept to a single moment per the Kinetic rule.)
-5. Hover reveals: the course cards light up (glow + sheen, carried over as asked); the SAVRA door plays
-   its loop. (From "hover dish preview".)
-6. Shorter: four chapters. Hero · Karte · Launch · Küche · Ablauf · Reservierung.
+**Ballena Cabo** — https://ballenacabo.com/ (layout, buttons, cards, navbar)
 
-## Art direction, palette, type — see `DESIGN.md` (numbers committed before the CSS was written).
+| Element | What it does |
+|---|---|
+| Navbar | A compact centred floating bar (~560px), translucent dark with blur: outlined square "Book now" (radius 2.5px, 10px caps) left, tall condensed wordmark centre, two-line menu icon right |
+| Headlines | Wide extended caps, light weight, two lines |
+| Split blocks | 50/50: full-bleed photo one side, solid colour block (terracotta) the other, with caps label, headline, short body, link |
+| Links | Small caps text + a filled circle with an arrow ("View full menu ⊙") — no pills |
+| Cards | Tall photo cards in a row (carousel), title centred at the top in caps, two-line centred caption and "Explore more ⊙" at the bottom, over the image |
+| Contact | A solid-colour panel floating over a full-bleed landscape photo |
+| Footer | Portrait photo + paragraph, vertical hairline, navigation column, newsletter with underline-only inputs; ends in a giant wordmark (not taken: Hair & Beauty already ends that way) |
+
+Type observed: Sweet Sans Pro (wide caps), TT Commons Pro. GSAP + Lenis.
+
+### Type trend (web search, 2026-10-22)
+
+- Slim condensed serifs are back in brand identities; Instrument Serif is named as the example
+  (https://letsdatascience.com/news/condensed-serifs-return-as-brand-trend-d6d9bd85, summarising a WSJ
+  report; https://madegooddesigns.com/trending-fonts/).
+- Hospitality uses soft/dramatic serifs for headlines and keeps them to heroes and price callouts
+  (https://www.vistaprint.com/hub/font-trends); elegant faces read as higher quality on menus
+  (https://madegooddesigns.com/?p=6601).
+- Both reference sites pair a condensed or wide display face with small tracked caps — Tigermilk with Druk,
+  Ballena with a tall condensed wordmark and wide caps.
+
+### v1 survey kept for context
+
+Awwwards restaurant listings 2026 (La table de Joakim, Restaurant GEM, Ballena Fine Dining, Son Daven, Crav
+Burgers, Gourou): dark grounds, editorial serifs, cream + red restraint, menu as object, hover reveals.
+
+## Direction — "Das Lokal"
+
+A warm Carinthian dining room in photographs, cream walls, cherry banquettes. Tigermilk's way of moving
+(split hero, words that fill as you read, an arch that opens into the room, a marquee of what the venue is)
+set in Ballena's way of laying out (centred floating bar, square outlined buttons, arrow-circle links, tall
+photo cards, split colour blocks, a panel over a photo). Nothing carried over from Hair & Beauty.
+
+### What replaces each Hair & Beauty element
+
+| Hair & Beauty (and v1) | Gastronomie v2 |
+|---|---|
+| Paper pill lockup header, cherry pill CTA | Centred floating noir bar: outlined square "Platz reservieren", serif wordmark, menu icon; menu opens a full-screen cherry overlay |
+| Pill buttons | Square buttons, 2px radius, 12px tracked caps; solid cherry or outlined |
+| Text links with → | Caps link + filled circle arrow (the repeating element) |
+| Glow + sheen plan cards | Tall photo cards: caps title on top, serif title + Anton price at the bottom, image zooms on hover |
+| Numbered eyebrows "01 / …" | Plain tracked caps labels, no numbers |
+| Giant footer wordmark | Cherry footer: chef photo + studio line, navigation column, a launch-places column with the ten ticks; small serif signature, no wordmark |
+| Archivo / Newsreader / Inter | Instrument Serif / Anton / Instrument Sans |
+| Plates on a drawn table | Ten ticks ("Gedecke") in the hero and footer; places stay counted from campaign.json |
+| (none) | Engraved cherry-ink cut-outs (cherries, wine glass, coffee cup) floating at section joins — the second repeating element |
+| (none) | Sticky bottom-centre square CTA, Tigermilk's "Voir la carte" |
 
 ## Page sequence and media map
 
 | # | Section | Ground | Media | Motion |
 |---|---|---|---|---|
-| 0 | Header | paper pills over noir | — | arrives −12px → 0 (0.8s); hides on scroll-down |
-| 1 | Hero | noir + one maroon light | the table (CSS geometry, 10 plates) | lines rise from masks; plates land; drift on scroll (scrub 1) |
-| 2 | Die Karte | cotton, paper sheet | noir course plates with numerals | reveal 18px; glow/sheen on hover; featured breathes; leaders draw |
-| 3 | Launch module | noir | — | countdown ticks; chili sheen over the claim (CSS) |
-| 4 | Aus der Küche | noir | SAVRA capture 3:4 door, loop on hover | reveal; video opacity 0 → 1 |
-| 5 | Ablauf | cotton | — | group reveal, 80ms stagger |
-| 6 | Reservierung + FAQ | cotton, paper sheet | — | reveal |
-| 7 | Footer | noir | edge-to-edge wordmark | — |
+| 0 | Header | translucent noir bar | — | drops in; never hides |
+| 1 | Hero (split) | left photo, right cotton | `hero-room` (4:5) | photo clip-reveal + scale 1.12 → 1; H1 lines rise; cherries cut-out floats |
+| 2 | Statement | cotton | `cut-glass` engraving | words fill gray → cherry with scroll (scrub) |
+| 3 | Arch | cotton → full-bleed | `arch-bar` (3:2) | arch grows to full-bleed (sticky stage, scrub); label over it |
+| 4 | Die Karte | paper | `course-1..3` (3:4) | cards rise 40px staggered; image zoom on hover |
+| 5 | Launch (split) | photo + cherry block | `food-4` cocktail (1:1, cover) | countdown ticks; ten ticks |
+| 6 | Marquee | maroon | `food-1..3` (1:1) | giant Anton words (Restaurant · Café · Bäckerei · Bar) + photo cards move sideways with scroll |
+| 7 | SAVRA | full-bleed SAVRA still, cream panel over it | SAVRA capture + loop | panel rises; loop plays on hover / in view |
+| 8 | Ablauf | cotton | `cut-cup` engraving | steps rise |
+| 9 | Reservierung + FAQ | paper | — | reveal |
+| 10 | Footer | cherry | `chef` (3:4) | — |
 
 ## Beat sheet
 
-| Beat | Trigger | What moves | Duration | Hands off to |
-|---|---|---|---|---|
-| 1 Arrival | load (motion) | header y −12 → 0, eyebrow fades up | 0.6–0.8s | 2 |
-| 2 The name on the door | +0.15s | three H1 lines rise 112 % → 0 inside masks | 1.1s, 90ms stagger | 3 |
-| 3 The table is set | +0.5s | table top scales .96 → 1; ten plates scale 1.3 → 1, opacity 0 → 1 | 0.9s / 0.7s, 60ms stagger | scroll |
-| 4 Leaving the room | scroll 0 → 100vh | hero copy y 0 → −60, table y 0 → −28 | scrub 1 | 5 |
-| 5 The card is read | each chapter enters 88 % | block rises 18px, opacity 0 → 1; leaders scaleX 0 → 1 | 0.9s / 1s | — |
-| 6 A course lights up | hover / focus / selected | glow opacity 0 → 1, lift 6px, sheen crosses the plate | 0.45s / 0.5s / 0.9s | — |
-| 7 The door opens | hover (fine pointer) or 60 % in view (touch) | SAVRA loop fades in over the still | 0.5s | — |
+| Beat | Trigger | What moves | Duration |
+|---|---|---|---|
+| 1 Arrival | load | bar y −16 → 0; photo clip `inset(100% 0 0 0)` → 0, scale 1.12 → 1 | 0.8s / 1.4s |
+| 2 Name on the door | +0.2s | three H1 lines rise 110 % → 0 in masks | 1.1s, 90ms stagger |
+| 3 Reading the room | statement in view | each word colour gray → cherry, scrub over 60 % of viewport | scrub 0.6 |
+| 4 The door opens | arch stage sticky | arch width 34vw → 100vw, top radius 50 % → 0, height 70vh → 100vh | scrub 1, 160vh stage |
+| 5 The card | cards enter | y 40 → 0, opacity 0 → 1 | 0.9s, 120ms stagger |
+| 6 What you serve | marquee in view | track x 0 → −(width − viewport) | scrub 1 |
+| 7 Cut-outs | always | y ±40px parallax, rotate ±6° | scrub |
+| 8 Sticky CTA | after hero, until Reservierung | y 120 % → 0 | 0.4s |
 
-Reduced motion: beats 1–5 do not exist (static layout, full opacity); 6 keeps a static glow; 7 stays a still.
+Reduced motion: no GSAP; statement fully cherry; arch shown full width as a still; marquee is a static row;
+no video; sticky CTA visible without animation.
 
 ## Acceptance criteria (encoded refusals)
 
-- One direction, no alternatives. No image sequence, no scissor cut, no dust, no portrait pairs.
-- Shorter than Hair & Beauty: no comparison table, no service calculator, four chapters.
-- The ten places are the message: counted in the hero, in the launch module, and as plates.
-- The cards keep the glow + sheen (the asked-for "shiny effect").
-- Only studio tokens; no gradient on any surface, card, control, text or rule (the hero light is the one atmospheric field).
-- Nothing hidden from the accessibility tree by motion; all content visible without JavaScript.
+- Nothing visible from Hair & Beauty: no pills, no glow/sheen cards, no giant wordmark footer, no Archivo,
+  Newsreader or Inter, no numbered eyebrows.
+- Brand colours only (noir, cotton, paper, ink, gray, hairline, cherry, maroon, chili, chili-300) plus the
+  grades named in DESIGN.md, which are mixes of those tokens. No gradient on any surface, card, control or
+  text; photo scrims are solid noir at an alpha.
+- Every photo is Artlist-generated for this page (shot list below) or the real SAVRA capture; none
+  pretends to be a client. Alt text describes the picture.
+- The ten places stay the message: hero ticks, launch module, footer.
+- Prices and sources from content/campaign.json, unchanged.
+- Nothing hidden from the accessibility tree by motion; everything visible without JavaScript.
+
+## Shot list (Artlist, Nano Banana Pro 2K, 160 credits each, 13 stills = 2,080 credits)
+
+Shared direction: editorial, warm tungsten evening light, 35mm grain, palette near-black brown / cream /
+deep cherry red, no text, no logos.
+
+| File | Ratio | Subject |
+|---|---|---|
+| hero-room | 4:5 | Carinthian bistro at dusk, walnut, cherry velvet banquettes, a waiter's hand setting a plate |
+| arch-bar | 3:2 | Bar counter, backlit bottles, rattan stools, arched niche, cherry lamp shades |
+| course-1 | 3:4 | Kärntner Kasnudeln, brown butter, cherry napkin ("Gut anrichten") |
+| course-2 | 3:4 | Glowing restaurant window at blue hour, passer-by looking in ("Gefunden werden") |
+| course-3 | 3:4 | Friends toasting over shared plates ("Im Gespräch bleiben") |
+| food-1 | 1:1 | Wiener Schnitzel (restaurant) |
+| food-2 | 1:1 | Espresso + Sachertorte (café) |
+| food-3 | 1:1 | Sourdough + croissants (bakery) |
+| food-4 | 1:1 | Cherry cocktail in a coupe (bar) |
+| chef | 3:4 | Chef's hands plating with tweezers |
+| cut-cherries | 1:1 | Engraving, cherry ink on cotton |
+| cut-glass | 1:1 | Engraving, wine glass |
+| cut-cup | 1:1 | Engraving, Viennese coffee cup |

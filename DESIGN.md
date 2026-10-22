@@ -1,148 +1,138 @@
 ---
 name: Convenium · Gastronomie
-description: A noir dining room with a paper menu card laid on it; Newsreader speaks, Archivo prices, Inter operates.
-northStar: Die Karte (the menu card)
-doctrine: convenium-design-atelier, with one Kinetic hero moment (the table being set)
+description: A warm Carinthian dining room in photographs; Tigermilk's motion set in Ballena's layout. Instrument Serif speaks, Anton shouts the numbers, Instrument Sans operates.
+northStar: Das Lokal (v2, 2026-10-22; replaces v1 "Die Karte")
+doctrine: convenium-design-atelier layout with a Kinetic scroll layer (word fill, growing arch, marquee)
+references: tigermilkrestaurants.com/fr/restaurants/lyon-viiie (motion) · ballenacabo.com (layout, buttons, cards, navbar)
 
 colors:
-  noir: "#1B1717"        # hero, launch module, example, footer ground
-  cotton: "#EDEBDD"      # page ground; text on noir and on cherry
-  paper: "#F5F3E8"       # the menu sheet, header pills, course cards
-  ink: "#241F1F"         # text on cotton/paper
-  gray: "#6E6963"        # secondary text on cotton/paper
+  # brand tokens (005-agency DESIGN.md), unchanged
+  noir: "#1B1717"        # header bar, photo scrims (alpha), text on cotton for the wordmark
+  cotton: "#EDEBDD"      # page ground; text on cherry, maroon, oxblood, noir
+  paper: "#F5F3E8"       # Karte and Reservierung grounds, SAVRA panel
+  ink: "#241F1F"         # body text on light grounds
+  gray: "#6E6963"        # secondary text on cotton/paper only (not on blush)
   gray-on-noir: "#A8A29A"
-  hairline: "#D6D2C2"    # rules on light fields; on noir: cotton at 18 % alpha
-  cherry: "#810100"      # labels, featured course, CTA pill; carries cotton text
-  maroon: "#630000"      # pill hover; the hero's atmospheric light
-  chili: "#D73B3E"       # focus ring; plate marks; countdown numerals and the sheen (display ≥ 24px on noir)
-  chili-300: "#E5595C"   # body-size accent text on noir (eyebrows)
+  hairline: "#D6D2C2"    # rules on light grounds
+  cherry: "#810100"      # buttons, labels, launch block, footer, menu overlay, filled words, engravings
+  maroon: "#630000"      # button hover
+  chili: "#D73B3E"       # focus ring; countdown digits on noir only
+  chili-300: "#E5595C"   # marquee accent words on oxblood
+  # grades: mixes of the tokens above, nothing new
+  blush: "#E4D8CB"       # cherry 8 % into cotton — card captions, FAQ open state
+  oxblood: "#460909"     # maroon 60 % into noir — the marquee room
+  rose: "#CFA99F"        # cotton 72 % over cherry — secondary text on cherry
 
 typography:
-  hero:    { fontFamily: Newsreader, fontSize: "clamp(2.75rem, 1.2rem + 5.2vw, 7rem)", fontWeight: 400, lineHeight: 1, letterSpacing: "-0.025em" }   # 44 → 94 @1440 → 112
-  display: { fontFamily: Newsreader, fontSize: "clamp(2.25rem, 1.4rem + 2.6vw, 4.5rem)", fontWeight: 400, lineHeight: 1.04, letterSpacing: "-0.025em" } # 36 → 60 → 72
-  title:   { fontFamily: Newsreader, fontSize: "clamp(1.5rem, 1.2rem + 0.9vw, 2.25rem)", fontWeight: 400, lineHeight: 1.12 }  # course titles, steps, SAVRA
-  lead:    { fontFamily: Newsreader, fontSize: "clamp(1.125rem, 1rem + 0.5vw, 1.5rem)", fontWeight: 400, lineHeight: 1.4 }
-  price:   { fontFamily: Archivo, fontSize: "clamp(2.25rem, 1.6rem + 1.8vw, 3.5rem)", fontWeight: 900, lineHeight: 1, letterSpacing: "-0.03em" }
-  numeral: { fontFamily: Archivo, fontSize: "clamp(2.25rem, 1.1rem + 2.5vw, 4.25rem)", fontWeight: 900, lineHeight: 0.82 }  # course plates 36 → 54 @1440 → 66; at or under the sheet's H2 at every width
-  claim:   { fontFamily: Newsreader, fontSize: "clamp(1.75rem, 1.2rem + 1.6vw, 3rem)", fontWeight: 400, lineHeight: 1.08, measure: "30ch" }  # launch module: 28 → 42 @1440 → 48, three lines
-  body:    { fontFamily: Inter, fontSize: "17px", fontWeight: 400, lineHeight: 1.55 }
-  small:   { fontFamily: Inter, fontSize: "14px", fontWeight: 400, lineHeight: 1.45 }
-  label:   { fontFamily: Inter, fontSize: "12px", fontWeight: 500, lineHeight: 1.3, letterSpacing: "0.08em", transform: uppercase }
+  display: { fontFamily: "Instrument Serif", fontSize: "clamp(3.25rem, 0.6rem + 8.2vw, 10.5rem)", lineHeight: 0.9, letterSpacing: "-0.02em" }   # H1 52 → 128 @1440 → 168
+  h2:      { fontFamily: "Instrument Serif", fontSize: "clamp(2.5rem, 1.2rem + 4vw, 6rem)", lineHeight: 0.95, letterSpacing: "-0.015em" }       # 40 → 77 @1440 → 96
+  statement: { fontFamily: "Instrument Serif", fontSize: "clamp(1.9rem, 0.9rem + 3.1vw, 4.4rem)", lineHeight: 1.08 }                        # word-fill paragraph, 30 → 60 → 70
+  title:   { fontFamily: "Instrument Serif", fontSize: "clamp(1.75rem, 1.2rem + 1.4vw, 2.75rem)", lineHeight: 1 }                             # card titles, steps
+  shout:   { fontFamily: Anton, fontSize: "clamp(5rem, 1rem + 15vw, 17rem)", lineHeight: 0.86, transform: uppercase }                      # marquee words 80 → 232 → 272
+  price:   { fontFamily: Anton, fontSize: "clamp(2.5rem, 1.6rem + 2.4vw, 4.25rem)", lineHeight: 0.95 }                                      # € 500 · countdown digits
+  body:    { fontFamily: "Instrument Sans", fontSize: "17px", fontWeight: 400, lineHeight: 1.55 }
+  small:   { fontFamily: "Instrument Sans", fontSize: "14px", lineHeight: 1.45 }
+  label:   { fontFamily: "Instrument Sans", fontSize: "12px", fontWeight: 600, letterSpacing: "0.14em", transform: uppercase }
+  button:  { fontFamily: "Instrument Sans", fontSize: "12px", fontWeight: 600, letterSpacing: "0.12em", transform: uppercase }
 
 spacing:
-  scale: 4 / 8 / 16 / 24 / 40 / 64 / 96 / 160
-  section: "clamp(72px, 10vw, 160px)  (72 phone · 96 tablet · 128 laptop · 160 wide)"
-  gutter: "20 / 32 / 48 / 64 / 72 by breakpoint"
-  measure: "hero 11ch · H2 16ch · lead 36–42ch · body 46–60ch · notes 96ch"
+  scale: 4 / 8 / 12 / 16 / 24 / 40 / 64 / 96 / 160
+  section: "clamp(80px, 11vw, 176px)"
+  gutter: "20 phone · 32 tablet · 48 laptop · 64 wide"
+  measure: "H1 9ch · H2 14ch · statement 26ch · body 52ch"
+
+radius: { button: 2px, card: 4px, photo-card: 18px (marquee only), arch: "50% 50% 0 0 / 34% 34% 0 0" }
 
 motion:
-  micro: 150ms
-  move: 400ms
-  scene: 800–1100ms
-  ease-out: cubic-bezier(.16, 1, .3, 1)   # CSS; GSAP uses power3/power4.out
-  ease-in-out: cubic-bezier(.65, 0, .35, 1)
-  scrub: 1 (the hero drift only)
-
-breakpoints:
-  target: "1440×900 laptop (design width), 1920×1080 desktop, 390×844 phone; 640 / 1024 switch points"
+  micro: 160ms
+  move: 400–600ms
+  scene: 900–1400ms
+  ease-out: cubic-bezier(.16, 1, .3, 1)    # GSAP power3/power4.out
+  scrub: "0.6 word fill · 1 arch, marquee, cut-outs"
 
 components:
-  pill-accent: { bg: cherry, text: cotton, ratio: "9.0:1" }
-  pill-light: { bg: paper, text: ink, ratio: "14.6:1" }
-  course-card: { bg: paper, text: ink, rule: hairline, glow: "cherry box-shadow on ::after" }
-  course-card-featured: { bg: cherry, text: cotton, ratio: "9.0:1" }
-  course-plate: { bg: noir, numeral: cotton, chip: "cotton on noir / cherry on noir (graphic)" }
-  launch-module: { bg: noir, claim: "cotton, Newsreader, 7/5 grid beside clock and offer", numerals: chili, ratio-chili-on-noir: "4.2:1 (display ≥ 24px)" }
-  focus-ring: { ring: chili, spacer: "the ground behind the control", on-cherry: cotton }
+  navbar: { bg: "noir @ 82 % + blur 14px", width: "min(640px, 100% − 2×12px)", radius: 3px, left: "button-outline (cotton)", centre: "wordmark, Instrument Serif 26px, tracked .08em", right: "menu icon button 44×44" }
+  button-solid: { bg: cherry, text: cotton, ratio: "9.05:1", hover: maroon, radius: 2px, height: 48px }
+  button-outline: { border: "1px currentColor @ 45 %", text: "ink on light / cotton on dark", hover: "fill the opposite ground" }
+  arrow-link: { text: "label caps", icon: "20px filled circle (cherry on light, cotton on dark) with a 10px arrow in the ground colour; moves 3px on hover" }
+  photo-card: { ratio: "3:4", radius: 4px, title: "caps label centred at top on a noir 55 % band", foot: "noir 62 % panel: serif title, Anton price, market line, arrow-link", hover: "image scale 1.06 over 900ms" }
+  launch-split: { photo: left, block: "cherry, cotton text 9.05, rose secondary 5.07, Anton countdown in cotton" }
+  marquee: { ground: oxblood, words: "cotton 13.45 / chili-300 4.54 alternating", cards: "1:1 photos, radius 18px, rotate ±4°" }
+  savra-panel: { ground: paper, over: "full-bleed SAVRA still", text: ink }
+  footer: { ground: cherry, text: cotton, secondary: rose, columns: "chef photo + studio · navigation · ten ticks + reserve" }
+  ticks: { count: 10, free: "circle 1.5px currentColor", taken: "filled", source: content/campaign.json }
+  sticky-cta: { position: "fixed, bottom 20px, centre", bg: cherry, text: cotton, shows: "after the hero, hides at Reservierung" }
+  focus-ring: { ring: chili, spacer: "ground colour"; on cherry/oxblood/maroon: "cotton ring" }
 ---
 
-# Convenium · Gastronomie — "Die Karte"
+# Convenium · Gastronomie — "Das Lokal"
 
 ## Visual World
 
-A dark dining room at evening and a paper menu card laid on the table. The page opens on noir with a
-Newsreader headline set like a restaurant's name on the door and, beside it, a table seen from above with
-ten plates: the ten launch places, counted live. Scrolling down lands on the paper sheet (registration
-corners, hairlines, dotted leaders between an item and its price) where the three packages are set as
-three courses, each with a noir plate carrying its numeral, the launch price in Archivo and the Austrian
-market average on a leader line. The one photographic moment is SAVRA, a real capture of our own
-restaurant concept site, framed like a door with an inner registration frame; it plays its silent loop on
-hover. The reservation at the end is the same paper. Cherry appears where a decision is made: the featured
-course, the reserve pill, the labels.
+A Carinthian dining room at dusk: walnut, cream lime plaster, cherry velvet banquettes, brass lamps,
+plates set down by a hand in a white sleeve. The page opens split like Tigermilk — the room on the left, a
+cream wall on the right with the name on it in a slim serif. Reading on, a sentence fills in cherry word by
+word, an arched doorway opens into the bar until it fills the screen, and the three courses are tall photo
+cards like Ballena's. The launch offer is a cherry block beside a cocktail; then the room turns oxblood and
+what the venue is — RESTAURANT · CAFÉ · BÄCKEREI · BAR — slides past in giant Anton between photographs.
+SAVRA is a cream panel over its own screenshot. The footer is cherry, not a wordmark.
 
 ## Type
 
-Newsreader leads (the Hair & Beauty page leads with Archivo and a photo sequence; this one reads like a
-menu). Archivo is confined to prices, numerals, the countdown and the wordmark. Inter operates: labels,
-body, controls. The hero is 94px at 1440 (clamp 44–112, 5.2vw) — the Atelier doctrine asks for a fixed
-step, argued here as a fluid step with a rem term because the page is designed for three widths and must
-survive text zoom; it stays the largest type on the page. The course numerals sit at or under the
-sheet's H2 at every width (36/36 phone, 54/60 at 1440, 66/72 at 1920): the H2 names the chapter, the
-numeral only counts the course (finish review 2026-10-22; it was 88px max and read as a second headline).
-The launch module's claim is a headline, so Newsreader sets it, in the wide column beside the clock;
-Archivo keeps the countdown digits.
+Instrument Serif carries every headline and the statement (a slim, condensed serif: the 2026 brand trend
+and the closest free relative of Ballena's tall wordmark). Anton is the Tigermilk shout: marquee words,
+prices, countdown digits, step numerals. Instrument Sans operates: labels, buttons, body, inputs. The H1
+(128px at 1440) is the largest type except the marquee words, which are decoration (`aria-hidden`) and
+read as a picture.
 
 ## Colour
 
-Measured ratios (build.mjs refuses if any pair falls under its minimum):
-
 | Pair | Ratio | Use |
 |---|---|---|
-| ink on cotton / paper | 14.1 / 15.2 | body |
-| gray on cotton / paper | 4.9 / 5.3 | secondary |
-| cherry on cotton / paper | 9.2 / 9.9 | labels, links |
-| cotton on noir | 15.0 | hero, example, footer |
-| gray-on-noir on noir | 7.1 | secondary on noir |
-| chili-300 on noir | 4.8 | eyebrows on noir (body size) |
-| chili on noir | 4.2 | countdown numerals, plate marks, sheen (≥ 24px display or graphic only) |
-| cotton on cherry | 9.0 | featured course, reserve pill |
+| ink on cotton / paper | 13.6 / 14.6 | body |
+| gray on cotton / paper | 4.54 / 4.88 | secondary (never on blush) |
+| cherry on cotton / paper | 9.05 / 9.74 | labels, filled words, arrow icons |
+| ink / cherry on blush | 11.6 / 7.7 | card captions, FAQ |
+| cotton on cherry | 9.05 | buttons, launch block, footer, menu overlay |
+| rose on cherry | 5.07 | secondary text on cherry |
+| cotton on oxblood | 13.45 | marquee words |
+| chili-300 on oxblood | 4.54 | marquee accent words |
+| cotton on noir | 14.8 | header bar, photo panels |
+| chili on noir | 4.2 | focus ring, graphic only |
 
-Banned: cherry text on noir (1.6:1), maroon as text anywhere, chili as body text anywhere.
+Banned: gray on blush (3.9), chili text on cherry or maroon, any gradient on surfaces or text.
 
 ## Media
 
-One real capture (SAVRA, `assets/savra/`, from the studio's `public/works/savra/`), contained in a 3:4
-door frame from laptop up and 16:10 below, never scrimmed; its chip sits in the frame's corner, no text
-crosses the picture. No photography elsewhere: the gastro world is drawn with type, hairlines and the
-plates. No AI-generated imagery on this page (none was commissioned; see Known Deployment Debt).
+All photographs are generated with Artlist (Nano Banana Pro, 2K) for this page from the shot list in
+`.olympus/06-build-plan.md`; they show no client and no readable text. The SAVRA capture is real. The three
+engravings are cherry ink on cotton and sit on cotton or paper grounds only (`mix-blend-mode: multiply`).
+Photos are `object-fit: cover`, served as WebP at 1600px max with JPEG-free fallbacks unnecessary (all
+target browsers read WebP).
 
 ## Motion
 
-GSAP 3.15 + ScrollTrigger (vendored). Beat sheet in `.olympus/06-build-plan.md`. Hero: header and
-eyebrow (0.6–0.8s), three lines rise from masks (1.1s, 90ms stagger), table top fades up, ten plates land
-(0.7s, 60ms stagger). Scroll: `[data-reveal]` rises 18px once; leaders draw from the left; the hero copy
-drifts 60px with `scrub: 1`. CSS: the featured course breathes its glow (3.2s), its sheen crosses every
-5.5s, hover lifts a course 6px on `translate`. Reduced motion: no GSAP context, static glow, no sheen,
-no video; everything is in the DOM at full opacity. No pins.
+GSAP 3.15 + ScrollTrigger (vendored), native scroll. Beat sheet in `.olympus/06-build-plan.md`. One sticky
+stage (the arch, 160vh) is the only place scroll and layout couple; it never traps focus and the content
+inside it is static text. Reduced motion: no GSAP context; the statement is fully cherry; the arch is a
+full-width still; the marquee is a static wrapped row; no video.
 
 ## Accessibility
 
-Landmarks: header, main, four sections with `aria-labelledby`, footer. One H1. The table is `role="img"`
-with a sentence; plates are decorative. Focus ring: chili over a ground-coloured spacer, cotton on cherry.
-Live region for the composer status; the countdown has `role="timer"` with a readable label. 44px targets
-on every link, including the small source links (hit area via `::before`).
-
-## Known Deployment Debt
-
-- Impressum/Datenschutz fields (`content/launch.json → legal`) are `null` until Rustam supplies them;
-  pages show `[fehlt]` and `noindex` stays.
-- No gastro photography or film beyond SAVRA; a photo pass (Higgsfield, with Rustam's yes) could replace
-  the noir course plates with stills, as the Hair & Beauty cards have.
-- The studio's `content/industries.ts` still says `building` / `url: null` for gastronomy; set it on
-  Rustam's deploy word.
+One H1. Landmarks header, main, sections with `aria-labelledby`, footer. The menu overlay is a dialog-like
+panel with focus moved in and Escape to close. Marquee words and engravings are `aria-hidden`; every
+photo has a describing alt. Ticks are `role="img"` with the places sentence. 44px targets. Focus: chili
+ring on light and noir grounds, cotton ring on cherry, maroon and oxblood.
 
 ## Do's and Don'ts
 
 ### Do
-- Keep Newsreader as the voice of every heading; Archivo only on numbers.
-- Keep the leaders dotted and one pixel; they are the menu's signature.
-- Keep the sheet's registration corners and the plates' inner ring: thin geometry, structural reading.
-- Count the places from `content/campaign.json` only; the plates follow the count.
-- Keep the page at four chapters; add nothing above the fold but the headline and the table.
+- Use the arrow-circle link for every secondary action; square buttons for primary.
+- Keep photographs full-bleed or in cards with 4px corners; the marquee cards alone are rounded 18px.
+- Count places from `content/campaign.json` only.
 
 ### Don't
-- No photos of food from stock or AI without Rustam's yes; no "restaurant mood" gradients beyond the hero's one light.
-- No cherry text on noir; no chili body text.
-- No pins, no scroll-jacking, no second hero moment.
-- Don't bring back the comparison table or the service calculator; the Karte is the comparison.
-- Don't set anything larger than the H1.
+- No pills, no glow, no sheen, no giant wordmark, no numbered eyebrows (Hair & Beauty's language).
+- No Archivo, Newsreader or Inter.
+- No gradients; scrims are solid noir at an alpha.
+- No second sticky stage; no scroll-jacking.

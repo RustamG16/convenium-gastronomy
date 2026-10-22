@@ -21,10 +21,11 @@ const errors = [];
 // --- the colour pairs the page uses, measured (WCAG relative luminance) ---
 const lum = (hex) => { const v = hex.replace('#', '').match(/../g).map((h) => parseInt(h, 16) / 255).map((c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4)); return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2]; };
 const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
-const T = { noir: '#1B1717', cotton: '#EDEBDD', paper: '#F5F3E8', ink: '#241F1F', gray: '#6E6963', grayNoir: '#A8A29A', cherry: '#810100', chili: '#D73B3E', chili300: '#E5595C' };
+const T = { noir: '#1B1717', cotton: '#EDEBDD', paper: '#F5F3E8', ink: '#241F1F', gray: '#6E6963', grayNoir: '#A8A29A', cherry: '#810100', maroon: '#630000', chili: '#D73B3E', chili300: '#E5595C', blush: '#E4D8CB', oxblood: '#460909', rose: '#CFA99F' };
 const PAIRS = [
   ['ink', 'cotton', 4.5], ['ink', 'paper', 4.5], ['gray', 'cotton', 4.5], ['gray', 'paper', 4.5], ['cherry', 'cotton', 4.5], ['cherry', 'paper', 4.5],
-  ['cotton', 'noir', 4.5], ['grayNoir', 'noir', 4.5], ['chili300', 'noir', 4.5], ['cotton', 'cherry', 4.5], ['chili', 'noir', 3], ['chili', 'cotton', 3], ['cotton', 'noir', 3]
+  ['ink', 'blush', 4.5], ['cherry', 'blush', 4.5], ['cotton', 'cherry', 4.5], ['rose', 'cherry', 4.5], ['cotton', 'maroon', 4.5], ['cotton', 'oxblood', 4.5],
+  ['chili300', 'oxblood', 4.5], ['cotton', 'noir', 4.5], ['grayNoir', 'noir', 4.5], ['chili300', 'noir', 4.5], ['chili', 'noir', 3]
 ];
 for (const [fg, bg, min] of PAIRS) { const r = ratio(T[fg], T[bg]); if (r < min) errors.push(`contrast ${fg} on ${bg} = ${r.toFixed(2)} < ${min}`); }
 
@@ -37,7 +38,7 @@ const sum = (ids) => ids.reduce((s, id) => s + camp.services[id].launch, 0);
 for (const p of camp.packages) if (sum(p.services) !== p.launch) errors.push(`package ${p.id}: launch ${p.launch} != sum of services ${sum(p.services)}`);
 
 // --- assets ---
-for (const f of ['assets/savra/cover.jpg', 'assets/savra/cover-portrait.jpg', 'assets/savra/loop.mp4', 'assets/savra/loop-portrait.mp4', 'assets/kit/vendor/gsap.min.js', 'assets/kit/vendor/ScrollTrigger.min.js', 'assets/kit/fonts/fonts.css', 'favicon.svg', 'og.jpg', 'styles.css', 'script.js', 'campaign.js'])
+for (const f of ['assets/savra/cover.jpg', 'assets/savra/cover-portrait.jpg', 'assets/savra/loop.mp4', 'assets/savra/loop-portrait.mp4', ...['hero-room', 'arch-bar', 'course-1', 'course-2', 'course-3', 'food-1', 'food-2', 'food-3', 'food-4', 'chef', 'cut-cherries', 'cut-glass', 'cut-cup'].map((n) => `assets/photos/${n}.webp`), 'assets/kit/fonts/instrument-serif-400.woff2', 'assets/kit/vendor/gsap.min.js', 'assets/kit/vendor/ScrollTrigger.min.js', 'assets/kit/fonts/fonts.css', 'favicon.svg', 'og.jpg', 'styles.css', 'script.js', 'campaign.js'])
   if (!(await exists(f))) errors.push(`missing ${f}`);
 
 if (errors.length) { console.error('build refused:\n  ' + errors.join('\n  ')); process.exit(1); }

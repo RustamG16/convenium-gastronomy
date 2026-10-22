@@ -1,8 +1,10 @@
-/* Convenium · Gastronomie — script.js
-   Interactions (locale links, the reservation composer, mobile menu, the door loop) and the GSAP
-   choreography (hero: the table is set; scroll: lines and leaders arrive). Content is complete in the
-   markup; motion applies start states only after GSAP is present, and never hides anything from the
-   accessibility tree (opacity and transform only). */
+/* Convenium · Gastronomie — script.js, v2 "Das Lokal"
+   Interactions (locale links, the reservation composer, the menu room, the phone tab bar, the card rail,
+   the sticky CTA, the SAVRA loop) and the GSAP choreography from .olympus/06-build-plan.md. Phones get the
+   same story with phone-sized motion (mobile-app-shell): play-once reveals, a shorter arch runway, a
+   self-running marquee, no parallax on coarse pointers. Content is complete in the markup; motion applies
+   start states only after GSAP is present and never hides anything from the accessibility tree (opacity,
+   colour, clip and transform only). */
 (function () {
   'use strict';
 
@@ -149,66 +151,98 @@
   if (initialPkg) setPackage(initialPkg, { hash: location.hash });
   if (!initialEx && !initialPkg) { renderPreview(); updateLocaleLinks(''); }
 
-  /* ---------------- Mobile navigation ---------------- */
-  var toggle = $('[data-menu-toggle]'), panel = document.getElementById('mobile-menu'), header = $('.site-header');
+
+  /* ---------------- The menu: a full-screen cherry room under the bar ---------------- */
+  var toggle = $('[data-menu-toggle]'), panel = document.getElementById('menu'), bar = $('.bar');
+  var toggleLabel = $('[data-menu-label]');
   var menuOpen = false;
   function onKey(e) { if (e.key === 'Escape') closeMenu(true); }
-  function onOutside(e) { if (header && !header.contains(e.target)) closeMenu(false); }
-  function onFocusOut(e) { if (menuOpen && header && e.relatedTarget && !header.contains(e.relatedTarget)) closeMenu(false); }
+  function onFocusOut(e) { if (menuOpen && e.relatedTarget && !panel.contains(e.relatedTarget) && !bar.contains(e.relatedTarget)) closeMenu(false); }
   function openMenu() {
     menuOpen = true;
     panel.hidden = false;
+    document.body.classList.add('menu-open');
     toggle.setAttribute('aria-expanded', 'true');
-    toggle.textContent = i18n.close;
-    if (motionOn()) window.gsap.fromTo(panel, { y: -12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.25, ease: 'power2.out', overwrite: true });
+    if (toggleLabel) toggleLabel.textContent = i18n.close;
+    if (motionOn()) {
+      window.gsap.fromTo(panel, { clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0% 0)', duration: 0.6, ease: 'power4.out', clearProps: 'clipPath' });
+      window.gsap.fromTo($$('.menu-nav a, .menu-locale', panel), { yPercent: 60, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.7, stagger: 0.06, ease: 'power3.out', delay: 0.15, clearProps: 'transform,opacity' });
+    }
     var first = $('a', panel);
     if (first) first.focus();
     document.addEventListener('keydown', onKey);
-    document.addEventListener('pointerdown', onOutside);
-    header.addEventListener('focusout', onFocusOut);
+    document.addEventListener('focusout', onFocusOut);
   }
   function closeMenu(returnFocus) {
     if (!menuOpen) return;
     menuOpen = false;
     toggle.setAttribute('aria-expanded', 'false');
-    toggle.textContent = i18n.menu;
+    if (toggleLabel) toggleLabel.textContent = i18n.menu;
+    document.body.classList.remove('menu-open');
     document.removeEventListener('keydown', onKey);
-    document.removeEventListener('pointerdown', onOutside);
-    header.removeEventListener('focusout', onFocusOut);
-    if (motionOn()) {
-      window.gsap.to(panel, { y: -12, opacity: 0, duration: 0.18, ease: 'power2.in', overwrite: true, onComplete: function () { if (!menuOpen) { panel.hidden = true; window.gsap.set(panel, { clearProps: 'transform,opacity' }); } } });
-    } else {
-      panel.hidden = true;
-      if (window.gsap) window.gsap.set(panel, { clearProps: 'transform,opacity' });
-    }
+    document.removeEventListener('focusout', onFocusOut);
+    panel.hidden = true;
     if (returnFocus) toggle.focus();
   }
-  if (toggle && panel && header) {
+  if (toggle && panel && bar) {
     toggle.addEventListener('click', function () { if (menuOpen) closeMenu(true); else openMenu(); });
     $$('a', panel).forEach(function (a) { a.addEventListener('click', function () { closeMenu(false); }); });
-    var onWide = function () { if (wideMQ.matches) closeMenu(false); };
-    if (wideMQ.addEventListener) wideMQ.addEventListener('change', onWide); else wideMQ.addListener(onWide);
   }
 
-  /* ---------------- Header: tuck away on scroll-down, return on scroll-up ---------------- */
-  if (header) {
-    var lastY = window.scrollY, headerHidden = false;
-    var setHeaderHidden = function (h) { if (h === headerHidden) return; headerHidden = h; header.classList.toggle('is-hidden', h); };
-    window.addEventListener('scroll', function () {
-      var y = window.scrollY, d = y - lastY;
-      if (Math.abs(d) < 6 && y > 120) return;
-      lastY = y;
-      if (y < 120 || menuOpen || header.contains(document.activeElement)) { setHeaderHidden(false); return; }
-      setHeaderHidden(d > 0);
+  /* ---------------- Where am I: the phone tab bar and the sticky CTA ----------------
+     The tab bar marks the chapter in view with aria-current; the desktop sticky CTA shows after the hero and
+     leaves once the reservation is on screen. Neither is motion, so both run under reduced motion too. */
+  var sticky = $('[data-sticky]'), hero = $('.hero'), inquiry = document.getElementById('reservierung');
+  var tabs = $$('[data-tab]');
+  var karte = document.getElementById('karte');
+  var stickyFirst = sticky ? { text: sticky.textContent, href: sticky.getAttribute('href') } : null;
+  var ticking = false;
+  function updatePlace() {
+    ticking = false;
+    var vh = window.innerHeight;
+    if (sticky && hero && inquiry) {
+      var on = hero.getBoundingClientRect().bottom < vh * 0.25 && inquiry.getBoundingClientRect().top > vh;
+      sticky.classList.toggle('is-on', on);
+      // Before the menu it leads to the menu; once the menu has been read it leads to the reservation.
+      var later = karte && karte.getBoundingClientRect().top < vh * 0.5;
+      var text = later ? sticky.getAttribute('data-label-later') : stickyFirst.text;
+      if (sticky.textContent !== text) { sticky.textContent = text; sticky.setAttribute('href', later ? '#reservierung' : stickyFirst.href); }
+      if (on) sticky.removeAttribute('tabindex'); else sticky.setAttribute('tabindex', '-1');
+    }
+    if (tabs.length) {
+      var here = currentAnchor();
+      if (here === 'launch') here = 'karte';
+      tabs.forEach(function (t) { if (t.getAttribute('data-tab') === here) t.setAttribute('aria-current', 'location'); else t.removeAttribute('aria-current'); });
+    }
+  }
+  function onScroll() { if (!ticking) { ticking = true; window.requestAnimationFrame(updatePlace); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  updatePlace();
+
+  /* ---------------- The card rail on phones: native scroll-snap, a live "1 / 3" ---------------- */
+  var rail = $('[data-rail]'), railCount = $('[data-rail-count]');
+  if (rail && railCount) {
+    var cards = $$('.card', rail);
+    var railTick = false;
+    rail.addEventListener('scroll', function () {
+      if (railTick) return;
+      railTick = true;
+      window.requestAnimationFrame(function () {
+        railTick = false;
+        var mid = rail.getBoundingClientRect().left + rail.clientWidth / 2, best = 0, dist = Infinity;
+        cards.forEach(function (c, i) { var r = c.getBoundingClientRect(), d = Math.abs(r.left + r.width / 2 - mid); if (d < dist) { dist = d; best = i; } });
+        railCount.textContent = (best + 1) + ' / ' + cards.length;
+        cards.forEach(function (c, i) { c.classList.toggle('is-current', i === best); });
+      });
     }, { passive: true });
-    header.addEventListener('focusin', function () { setHeaderHidden(false); });
   }
 
-  /* ---------------- The door: SAVRA's own loop, on hover (fine pointer) or in view (touch) ----------------
+  /* ---------------- SAVRA: its own loop, on hover (fine pointer) or in view (touch) ----------------
      The capture is real; the video is a silent loop of the live site. Paused under reduced motion and by
-     the toggle. Source picked once per layout (portrait from laptop up, landscape below). */
+     the toggle. Source picked once per layout (landscape from laptop up, portrait below). */
   var door = $('[data-door]'), video = $('[data-door-video]'), motionToggle = $('[data-motion-toggle]');
-  var videoPaused = false, doorObserver = null;
+  var videoPaused = false;
   function loadVideo() {
     if (!video || video.getAttribute('src')) return;
     video.setAttribute('src', video.getAttribute(wideMQ.matches ? 'data-src-wide' : 'data-src-narrow'));
@@ -232,10 +266,9 @@
       door.addEventListener('pointerenter', playDoor);
       door.addEventListener('pointerleave', pauseDoor);
       door.addEventListener('focusin', playDoor);
-      door.addEventListener('focusout', pauseDoor);
+      door.addEventListener('focusout', function (e) { if (!door.contains(e.relatedTarget)) pauseDoor(); });
     } else if ('IntersectionObserver' in window) {
-      doorObserver = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) playDoor(); else pauseDoor(); }); }, { threshold: 0.6 });
-      doorObserver.observe(door);
+      new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) playDoor(); else pauseDoor(); }); }, { threshold: 0.35 }).observe(door);
     }
   }
   if (motionToggle) {
@@ -248,44 +281,84 @@
   }
 
   /* ---------------- Motion (GSAP + ScrollTrigger) ----------------
-     Beat sheet (06-build-plan.md): 1 the header and eyebrow arrive · 2 the three lines rise out of their
-     masks · 3 the table top fades up and the ten plates land, one after the other · 4 on scroll, every
-     chapter head and card rises 18px into place and the dotted leaders draw from the left · 5 the hero
-     copy drifts up a little as the room scrolls away (scrub 1). Reduced motion: none of it; the page is
-     the static layout. No pins. */
+     Beat sheet (06-build-plan.md): 1 the bar drops in and the room is revealed behind a rising clip · 2 the
+     three lines rise out of their masks · 3 the statement fills word by word · 4 the arch opens to the full
+     screen (the one sticky stage) · 5 the cards rise · 6 the marquee travels sideways · 7 the engraved
+     cut-outs drift. Phone (≤ 767 or coarse pointer): 3 plays once, 4 runs a ~2-screen runway, 6 runs on its
+     own clock, 7 floats instead of following the scroll. Reduced motion: none of it. */
   function initMotion() {
     var gsap = window.gsap, ST = window.ScrollTrigger;
     if (!gsap || !ST) { root.classList.remove('pre'); root.setAttribute('data-motion', 'unavailable'); armDoor(); return; }
     gsap.registerPlugin(ST);
+    var css = getComputedStyle(root);
+    var GRAY = css.getPropertyValue('--gray').trim(), CHERRY = css.getPropertyValue('--cherry').trim();
     var mm = gsap.matchMedia();
-    mm.add({ motion: '(prefers-reduced-motion: no-preference)', reduce: '(prefers-reduced-motion: reduce)' }, function (ctx) {
+    mm.add({ motion: '(prefers-reduced-motion: no-preference)', reduce: '(prefers-reduced-motion: reduce)', phone: '(max-width: 767px), (pointer: coarse)' }, function (ctx) {
       if (!ctx.conditions.motion) { root.classList.remove('pre'); root.setAttribute('data-motion', 'reduced'); return undefined; }
+      var phone = ctx.conditions.phone;
       root.setAttribute('data-motion', 'full');
 
+      // 1–2 · arrival
       var tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
-      tl.fromTo('.site-header', { y: -12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, clearProps: 'transform,opacity' }, 0)
-        .fromTo('.hero .label', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.6 }, 0.1)
-        .fromTo('.hero .line-inner', { yPercent: 112 }, { yPercent: 0, duration: 1.1, stagger: 0.09 }, 0.15)
-        .fromTo('.hero-body, .hero .actions', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 }, 0.55)
-        .fromTo('.table-caption, .table-note', { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.6)
-        .fromTo('.table-top', { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.9, ease: 'power3.out' }, 0.5)
-        .fromTo('.plate', { opacity: 0, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.7, stagger: 0.06, ease: 'power3.out' }, 0.7);
-      // fromTo renders its from-states at once, so the pre-paint class can go now.
+      tl.fromTo('.bar', { y: -16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, clearProps: 'transform,opacity' }, 0.1)
+        .fromTo('.hero-photo img', { opacity: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.12 }, { clipPath: 'inset(0% 0 0 0)', scale: 1, duration: 1.4, clearProps: 'clipPath' }, phone ? 0.5 : 0)
+        .fromTo('.hero .label', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.6 }, 0.2)
+        .fromTo('.hero .line-inner', { yPercent: 110 }, { yPercent: 0, duration: 1.1, stagger: 0.09 }, 0.25)
+        .fromTo('.hero-body, .hero .actions, .hero-places', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 }, 0.7)
+        .fromTo('.tick', { scale: 0 }, { scale: 1, duration: 0.5, stagger: 0.04, ease: 'back.out(2)' }, 1);
       root.classList.remove('pre');
 
-      gsap.to('.hero-copy', { y: -60, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
-      gsap.to('.table', { y: -28, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
+      // 3 · the statement fills as it is read (scrubbed on desktop, played once on phones)
+      var words = $$('.statement .w');
+      if (words.length) {
+        if (phone) gsap.fromTo(words, { color: GRAY }, { color: CHERRY, duration: 0.5, stagger: 0.05, ease: 'none', scrollTrigger: { trigger: '.statement-text', start: 'top 75%', once: true } });
+        else gsap.fromTo(words, { color: GRAY }, { color: CHERRY, ease: 'none', stagger: 0.1, scrollTrigger: { trigger: '.statement-text', start: 'top 82%', end: 'bottom 48%', scrub: 0.6 } });
+      }
 
+      // 4 · the arch opens into the room (the signature: scrubbed on every size, shorter on phones)
+      var arch = $('[data-arch]'), frame = $('[data-arch-frame]');
+      if (arch && frame) {
+        arch.classList.add('is-staged');
+        var startW = function () { return Math.min(window.innerWidth * (window.innerWidth < 640 ? 0.7 : 0.34), 520); };
+        gsap.fromTo(frame,
+          { width: startW, height: function () { return startW() * 1.32; }, borderRadius: function () { return startW() / 2 + 'px ' + startW() / 2 + 'px 0px 0px'; } },
+          { width: function () { return window.innerWidth; }, height: function () { return window.innerHeight; }, borderRadius: '0px 0px 0px 0px', ease: 'none',
+            scrollTrigger: { trigger: arch, start: 'top top', end: 'bottom bottom', scrub: phone ? 0.5 : 1, invalidateOnRefresh: true } });
+        gsap.fromTo('.arch-line', { yPercent: 120, opacity: 0 }, { yPercent: 0, opacity: 1, ease: 'none', scrollTrigger: { trigger: arch, start: '20% top', end: '55% top', scrub: true } });
+      }
+
+      // 5 · cards and blocks rise, once
+      if (phone) {
+        // On the rail the cards arrive from the right, the photo settles from a slight zoom.
+        gsap.fromTo('[data-reveal-card]', { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out', clearProps: 'transform', scrollTrigger: { trigger: '.cards', start: 'top 85%', once: true } });
+        gsap.fromTo('.card-photo img', { scale: 1.12 }, { scale: 1, duration: 1.4, ease: 'power3.out', scrollTrigger: { trigger: '.cards', start: 'top 85%', once: true } });
+      } else {
+        gsap.fromTo('[data-reveal-card]', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out', clearProps: 'transform', scrollTrigger: { trigger: '.cards', start: 'top 82%', once: true } });
+      }
       $$('[data-reveal]').forEach(function (el) {
-        gsap.fromTo(el, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', clearProps: 'transform', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+        gsap.fromTo(el, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', clearProps: 'transform', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
       });
       $$('[data-reveal-group]').forEach(function (group) {
-        gsap.fromTo(group.children, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.08, ease: 'power3.out', clearProps: 'transform', scrollTrigger: { trigger: group, start: 'top 85%', once: true } });
+        gsap.fromTo(group.children, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.08, ease: 'power3.out', clearProps: 'transform', scrollTrigger: { trigger: group, start: 'top 85%', once: true } });
       });
-      $$('.leader').forEach(function (el) {
-        gsap.fromTo(el, { scaleX: 0 }, { scaleX: 1, duration: 1, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 94%', once: true } });
+      $$('.campaign-photo img, .footer-photo').forEach(function (el) {
+        gsap.fromTo(el, { clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0% 0)', duration: 1.2, ease: 'power4.out', clearProps: 'clipPath', scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
       });
-      return function () { root.setAttribute('data-motion', 'reduced'); };
+
+      // 6 · the marquee: tied to the scroll on desktop, on its own clock on phones
+      var track = $('[data-mq-track]');
+      if (track) {
+        if (phone) gsap.fromTo(track, { x: 0 }, { x: function () { return -(track.scrollWidth / 2); }, duration: 22, ease: 'none', repeat: -1 });
+        else gsap.fromTo(track, { x: 0 }, { x: function () { return -(track.scrollWidth / 2); }, ease: 'none', scrollTrigger: { trigger: '[data-marquee]', start: 'top bottom', end: 'bottom top', scrub: 1, invalidateOnRefresh: true } });
+      }
+
+      // 7 · the cut-outs drift with the scroll, or float on phones (no parallax on coarse pointers)
+      $$('[data-cut]').forEach(function (el, i) {
+        if (phone) gsap.fromTo(el, { y: -8, rotate: -4 }, { y: 8, rotate: 4, duration: 3 + i * 0.4, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+        else gsap.fromTo(el, { y: 40, rotate: -6 }, { y: -40, rotate: 6, ease: 'none', scrollTrigger: { trigger: el.closest('section'), start: 'top bottom', end: 'bottom top', scrub: 1 } });
+      });
+
+      return function () { if (arch) arch.classList.remove('is-staged'); root.setAttribute('data-motion', 'reduced'); };
     });
     armDoor();
   }

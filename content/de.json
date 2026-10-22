@@ -6,7 +6,20 @@
   "description": "Individuelle Websites für Restaurants, Cafés, Bars und Bäckereien in Klagenfurt. Zehn Launch-Plätze zum Fixpreis. Von Convenium, Klagenfurt.",
   "skip": "Zum Inhalt",
   "brandLabel": "Convenium, zum Seitenanfang",
-  "nav": { "menu": "Die Karte", "example": "Beispiel", "process": "Ablauf", "cta": "Platz reservieren", "menuBtn": "Menü", "close": "Schließen", "main": "Hauptnavigation", "mobile": "Mobile Navigation", "foot": "Fußnavigation", "localeSr": "English: ", "deLong": "Deutsch", "enLong": "English" },
+  "nav": {
+    "menu": "Die Karte",
+    "example": "Beispiel",
+    "process": "Ablauf",
+    "cta": "Platz reservieren",
+    "menuBtn": "Menü",
+    "close": "Schließen",
+    "main": "Hauptnavigation",
+    "mobile": "Mobile Navigation",
+    "foot": "Fußnavigation",
+    "localeSr": "English: ",
+    "deLong": "Deutsch",
+    "enLong": "English"
+  },
   "hero": {
     "eyebrow": "Websites für Gastronomie · Klagenfurt",
     "line1": "Ihr Lokal.",
@@ -16,13 +29,12 @@
     "primary": "Zur Karte",
     "secondary": "Platz reservieren",
     "tableLabel": "Zehn Launch-Plätze",
-    "tableCaption": "Jeder Platz ist eine Website zum Launch-Preis – für die ersten zehn Lokale.",
-    "plateFree": "frei",
-    "plateTaken": "reserviert",
-    "tableSr": "Tisch für zehn: ein Teller pro Launch-Platz."
+    "tableSr": "Zehn Launch-Plätze, einer pro Lokal.",
+    "alt": "Ein Bistro in der Dämmerung: dunkles Holz, kirschrote Samtbänke, weiße Tischtücher und Kerzen; eine Hand im weißen Hemdärmel stellt einen Teller ab.",
+    "ticksLabel": "Zehn Launch-Plätze"
   },
   "menu": {
-    "label": "01 / Die Karte",
+    "label": "Die Karte",
     "title": "Drei Gänge.",
     "titleAccent": "Ein Fixpreis.",
     "intro": "Wie auf der Karte: drei Gänge, der Preis steht dabei. Launch-Preise für die ersten zehn Lokale, verglichen mit dem österreichischen Marktdurchschnitt.",
@@ -33,22 +45,81 @@
     "featured": "Empfehlung des Hauses",
     "choose": "Diesen Gang wählen",
     "items": {
-      "website": { "name": "Website", "title": "Gut anrichten.", "includes": ["Karte, Zeiten, Team, Anfahrt", "Reservierungs- und Bestelllinks", "Eine Seite für ein Lokal, in Ihrem Stil"] },
-      "website-seo": { "name": "Website + Google SEO", "title": "Gefunden werden.", "includes": ["Alles aus „Website“", "Google SEO für Ihre Stadt", "Search Console eingerichtet"] },
-      "website-seo-social": { "name": "Website + SEO + Social", "title": "Im Gespräch bleiben.", "includes": ["Alles aus „Website + Google SEO“", "Ein Monat Social Media", "1 KI-Video + 4 Posts, ein Kanal"] }
+      "website": {
+        "name": "Website",
+        "title": "Gut anrichten.",
+        "includes": [
+          "Karte, Zeiten, Team, Anfahrt",
+          "Reservierungs- und Bestelllinks",
+          "Eine Seite für ein Lokal, in Ihrem Stil"
+        ],
+        "alt": "Kärntner Kasnudeln mit brauner Butter und Schnittlauch auf einem hellen Teller, daneben eine kirschrote Serviette und eine Gabel."
+      },
+      "website-seo": {
+        "name": "Website + Google SEO",
+        "title": "Gefunden werden.",
+        "includes": [
+          "Alles aus „Website“",
+          "Google SEO für Ihre Stadt",
+          "Search Console eingerichtet"
+        ],
+        "alt": "Das leuchtende Fenster eines kleinen Restaurants zur blauen Stunde; ein Passant bleibt auf dem Kopfsteinpflaster stehen und schaut hinein."
+      },
+      "website-seo-social": {
+        "name": "Website + SEO + Social",
+        "title": "Im Gespräch bleiben.",
+        "includes": [
+          "Alles aus „Website + Google SEO“",
+          "Ein Monat Social Media",
+          "1 KI-Video + 4 Posts, ein Kanal"
+        ],
+        "alt": "Freunde stoßen mit Rotwein über einem Tisch voller geteilter Teller an."
+      }
     },
     "extrasTitle": "Dazu bestellen",
     "extras": [
-      { "name": "Google-Unternehmensprofil", "why": "Adresse, Zeiten, Karte und Bilder – richtig und aktuell.", "price": 150, "unit": "einmalig" },
-      { "name": "Instagram: Profil, Bio & 4 Highlight-Cover", "why": "Sofort klar: Küche, Ort, Reservierung.", "price": 150, "unit": "einmalig" },
-      { "name": "Website-Pflege", "why": "Neue Karte, neue Zeiten – Sie melden sich, wir pflegen ein.", "price": 39, "unit": "/ Monat" }
+      {
+        "name": "Google-Unternehmensprofil",
+        "why": "Adresse, Zeiten, Karte und Bilder – richtig und aktuell.",
+        "price": 150,
+        "unit": "einmalig"
+      },
+      {
+        "name": "Instagram: Profil, Bio & 4 Highlight-Cover",
+        "why": "Sofort klar: Küche, Ort, Reservierung.",
+        "price": 150,
+        "unit": "einmalig"
+      },
+      {
+        "name": "Website-Pflege",
+        "why": "Neue Karte, neue Zeiten – Sie melden sich, wir pflegen ein.",
+        "price": 39,
+        "unit": "/ Monat"
+      }
     ],
     "valueTitle": "In jedem Gang",
-    "value": [["Eigenes Design", "Keine Vorlage."], ["Smartphone zuerst", "Und auf dem Desktop."], ["Fixpreis vorab", "Schriftlich, vor dem Start."], ["Übergabe inklusive", "2 Korrekturrunden, 60 Minuten."]],
+    "value": [
+      [
+        "Eigenes Design",
+        "Keine Vorlage."
+      ],
+      [
+        "Smartphone zuerst",
+        "Und auf dem Desktop."
+      ],
+      [
+        "Fixpreis vorab",
+        "Schriftlich, vor dem Start."
+      ],
+      [
+        "Übergabe inklusive",
+        "2 Korrekturrunden, 60 Minuten."
+      ]
+    ],
     "note": "Mehr Seiten, Standorte oder Sprachen nach Umfang. Nicht enthalten: Domain, Hosting, Gebühren für Reservierungs- oder Bestellsysteme, Fotoshooting, Rechtstexte, Werbebudget. Keine Garantie für Rankings oder Reservierungen."
   },
   "example": {
-    "label": "02 / Aus der Küche",
+    "label": "Aus der Küche",
     "title": "Durch die blaue Tür",
     "titleAccent": "in den Raum.",
     "intro": "SAVRA ist eine Konzeptwebsite für ein Restaurant in Wien: ein Scroll führt durch die Tür an den gedeckten Tisch. Ihre Website bekommt eine eigene Gestaltung – Ihre Karte, Ihre Zeiten, Ihre Reservierung.",
@@ -63,13 +134,26 @@
     "motionPlay": "Bewegung aktivieren"
   },
   "process": {
-    "label": "03 / Ablauf",
+    "label": "Ablauf",
     "title": "Vom Gespräch",
     "titleAccent": "zum Tisch.",
-    "steps": [["Kennenlernen", "Ihr Lokal, Ihre Gäste, Ihre Karte."], ["Abschmecken", "Gestaltung und Texte in Ihrem Stil, zwei Korrekturrunden."], ["Servieren", "Veröffentlichen, prüfen, übergeben – mit 60 Minuten Einführung."]]
+    "steps": [
+      [
+        "Kennenlernen",
+        "Ihr Lokal, Ihre Gäste, Ihre Karte."
+      ],
+      [
+        "Abschmecken",
+        "Gestaltung und Texte in Ihrem Stil, zwei Korrekturrunden."
+      ],
+      [
+        "Servieren",
+        "Veröffentlichen, prüfen, übergeben – mit 60 Minuten Einführung."
+      ]
+    ]
   },
   "inquiry": {
-    "label": "04 / Reservierung",
+    "label": "Reservierung",
     "title": "Reservieren Sie",
     "titleAccent": "Ihren Platz.",
     "body": "Erzählen Sie uns von Ihrem Lokal – zwei Sätze genügen.",
@@ -89,16 +173,40 @@
     "copy": "Anfragetext kopieren",
     "success": "Anfragetext kopiert. Es wurde keine Nachricht gesendet.",
     "failure": "Kopieren nicht möglich. Bitte markieren und kopieren Sie den Text unten.",
-    "draft": { "intro": "Ich interessiere mich für eine individuelle Website für mein Lokal.", "business": "Lokal", "location": "Ort", "direction": "Richtung", "package": "Gang", "price": "Ab-Preis", "idea": "Meine Idee", "empty": "…", "once": "einmalig", "net": "netto", "from": "ab" }
+    "draft": {
+      "intro": "Ich interessiere mich für eine individuelle Website für mein Lokal.",
+      "business": "Lokal",
+      "location": "Ort",
+      "direction": "Richtung",
+      "package": "Gang",
+      "price": "Ab-Preis",
+      "idea": "Meine Idee",
+      "empty": "…",
+      "once": "einmalig",
+      "net": "netto",
+      "from": "ab"
+    }
   },
   "faq": {
     "title": "Häufige",
     "titleAccent": "Fragen",
     "items": [
-      ["Ist das eine fertige Vorlage?", "Nein. SAVRA zeigt eine Richtung; Ihre Website wird für Ihr Lokal gestaltet."],
-      ["Kann meine Reservierung eingebunden werden?", "Vorhandene Reservierungs- oder Bestelllinks ja. Weitere Integrationen hängen vom Anbieter ab."],
-      ["Was kostet eine Website?", "Ab € 500 netto für eine einseitige Website – der Launch-Preis für die ersten zehn Lokale. Den Endpreis bestätigen wir vor dem Start schriftlich."],
-      ["Ist SAVRA ein Kundenprojekt?", "Nein. SAVRA ist eine Konzeptwebsite von Convenium, kein Kundenauftrag."]
+      [
+        "Ist das eine fertige Vorlage?",
+        "Nein. SAVRA zeigt eine Richtung; Ihre Website wird für Ihr Lokal gestaltet."
+      ],
+      [
+        "Kann meine Reservierung eingebunden werden?",
+        "Vorhandene Reservierungs- oder Bestelllinks ja. Weitere Integrationen hängen vom Anbieter ab."
+      ],
+      [
+        "Was kostet eine Website?",
+        "Ab € 500 netto für eine einseitige Website – der Launch-Preis für die ersten zehn Lokale. Den Endpreis bestätigen wir vor dem Start schriftlich."
+      ],
+      [
+        "Ist SAVRA ein Kundenprojekt?",
+        "Nein. SAVRA ist eine Konzeptwebsite von Convenium, kein Kundenauftrag."
+      ]
     ]
   },
   "footer": {
@@ -108,6 +216,31 @@
     "imprint": "Impressum",
     "privacy": "Datenschutz",
     "studio": "Convenium Studio, Startseite",
-    "otherLocale": "English"
-  }
+    "otherLocale": "English",
+    "about": "Convenium gestaltet Websites für Lokale in Klagenfurt und Kärnten – jede eigens für ihr Haus.",
+    "navTitle": "Navigation",
+    "contactTitle": "Kontakt",
+    "placesTitle": "Launch-Plätze",
+    "photoAlt": "Hände eines Kochs richten mit einer Pinzette einen Teller an.",
+    "signature": "Convenium · Gastronomie"
+  },
+  "statement": {
+    "label": "Das Angebot",
+    "text": "Zehn Lokale bekommen ihre eigene Website zum Launch-Preis – angerichtet wie Ihre Karte, gebaut für das Telefon in der Hand Ihrer Gäste und zu finden, wenn heute Abend jemand Hunger hat."
+  },
+  "arch": {
+    "line": "Treten Sie ein.",
+    "alt": "Eine Bar mit hinterleuchteten Flaschen, Rattanhockern und zwei kirschroten Lampenschirmen vor einer hellen Wand mit Rundbogen."
+  },
+  "marquee": {
+    "words": [
+      "Restaurant",
+      "Café",
+      "Bäckerei",
+      "Bar"
+    ],
+    "sr": "Für Restaurants, Cafés, Bäckereien und Bars."
+  },
+  "launchAlt": "Ein kirschroter Cocktail in einer Coupette auf einer dunklen Holzbar, dahinter leuchtende Flaschen.",
+  "sticky": "Zur Karte"
 }

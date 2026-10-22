@@ -6,7 +6,20 @@
   "description": "Bespoke websites for restaurants, cafés, bars and bakeries in Klagenfurt. Ten launch places at a fixed price. By Convenium, Klagenfurt.",
   "skip": "Skip to content",
   "brandLabel": "Convenium, back to top",
-  "nav": { "menu": "The menu", "example": "Example", "process": "Process", "cta": "Reserve a place", "menuBtn": "Menu", "close": "Close", "main": "Main navigation", "mobile": "Mobile navigation", "foot": "Footer navigation", "localeSr": "Deutsch: ", "deLong": "Deutsch", "enLong": "English" },
+  "nav": {
+    "menu": "The menu",
+    "example": "Example",
+    "process": "Process",
+    "cta": "Reserve a place",
+    "menuBtn": "Menu",
+    "close": "Close",
+    "main": "Main navigation",
+    "mobile": "Mobile navigation",
+    "foot": "Footer navigation",
+    "localeSr": "Deutsch: ",
+    "deLong": "Deutsch",
+    "enLong": "English"
+  },
   "hero": {
     "eyebrow": "Websites for Gastronomy · Klagenfurt",
     "line1": "Your venue.",
@@ -16,13 +29,12 @@
     "primary": "See the menu",
     "secondary": "Reserve a place",
     "tableLabel": "Ten launch places",
-    "tableCaption": "Each place is one website at the launch price – for the first ten venues.",
-    "plateFree": "free",
-    "plateTaken": "reserved",
-    "tableSr": "A table for ten: one plate per launch place."
+    "tableSr": "Ten launch places, one per venue.",
+    "alt": "A bistro at dusk: dark wood, cherry-red velvet banquettes, white tablecloths and candles; a hand in a white shirt sleeve sets down a plate.",
+    "ticksLabel": "Ten launch places"
   },
   "menu": {
-    "label": "01 / The menu",
+    "label": "The menu",
     "title": "Three courses.",
     "titleAccent": "One fixed price.",
     "intro": "Like a menu: three courses, the price beside each. Launch prices for the first ten venues, compared with the Austrian market average.",
@@ -33,22 +45,81 @@
     "featured": "The house recommends",
     "choose": "Choose this course",
     "items": {
-      "website": { "name": "Website", "title": "Well plated.", "includes": ["Menu, hours, team, directions", "Reservation and ordering links", "One page for one venue, in your style"] },
-      "website-seo": { "name": "Website + Google SEO", "title": "Get found.", "includes": ["Everything in “Website”", "Google SEO for your city", "Search Console set up"] },
-      "website-seo-social": { "name": "Website + SEO + Social", "title": "Stay on the table.", "includes": ["Everything in “Website + Google SEO”", "One month of social media", "1 AI video + 4 posts, one channel"] }
+      "website": {
+        "name": "Website",
+        "title": "Well plated.",
+        "includes": [
+          "Menu, hours, team, directions",
+          "Reservation and ordering links",
+          "One page for one venue, in your style"
+        ],
+        "alt": "Carinthian Kasnudeln with brown butter and chives on a pale plate, a cherry-red napkin and a fork beside it."
+      },
+      "website-seo": {
+        "name": "Website + Google SEO",
+        "title": "Get found.",
+        "includes": [
+          "Everything in “Website”",
+          "Google SEO for your city",
+          "Search Console set up"
+        ],
+        "alt": "The glowing window of a small restaurant at blue hour; a passer-by stops on the cobblestones to look in."
+      },
+      "website-seo-social": {
+        "name": "Website + SEO + Social",
+        "title": "Stay on the table.",
+        "includes": [
+          "Everything in “Website + Google SEO”",
+          "One month of social media",
+          "1 AI video + 4 posts, one channel"
+        ],
+        "alt": "Friends toasting with red wine over a table full of shared plates."
+      }
     },
     "extrasTitle": "On the side",
     "extras": [
-      { "name": "Google Business Profile", "why": "Address, hours, menu and pictures – correct and current.", "price": 150, "unit": "one-off" },
-      { "name": "Instagram: profile, bio & 4 highlight covers", "why": "Clear at a glance: kitchen, place, reservation.", "price": 150, "unit": "one-off" },
-      { "name": "Website care", "why": "New menu, new hours – you tell us, we keep it current.", "price": 39, "unit": "/ month" }
+      {
+        "name": "Google Business Profile",
+        "why": "Address, hours, menu and pictures – correct and current.",
+        "price": 150,
+        "unit": "one-off"
+      },
+      {
+        "name": "Instagram: profile, bio & 4 highlight covers",
+        "why": "Clear at a glance: kitchen, place, reservation.",
+        "price": 150,
+        "unit": "one-off"
+      },
+      {
+        "name": "Website care",
+        "why": "New menu, new hours – you tell us, we keep it current.",
+        "price": 39,
+        "unit": "/ month"
+      }
     ],
     "valueTitle": "With every course",
-    "value": [["Your own design", "No template."], ["Phone first", "And on the desktop."], ["Fixed price up front", "In writing, before we start."], ["Handover included", "2 rounds of corrections, 60 minutes."]],
+    "value": [
+      [
+        "Your own design",
+        "No template."
+      ],
+      [
+        "Phone first",
+        "And on the desktop."
+      ],
+      [
+        "Fixed price up front",
+        "In writing, before we start."
+      ],
+      [
+        "Handover included",
+        "2 rounds of corrections, 60 minutes."
+      ]
+    ],
     "note": "More pages, locations or languages by scope. Not included: domain, hosting, reservation or ordering system fees, photo shoot, legal texts, ad budget. No guarantee of rankings or reservations."
   },
   "example": {
-    "label": "02 / From the kitchen",
+    "label": "From the kitchen",
     "title": "Through the blue door",
     "titleAccent": "and into the room.",
     "intro": "SAVRA is a concept website for a restaurant in Vienna: one scroll leads through the door to the set table. Your website gets a design of its own – your menu, your hours, your reservation.",
@@ -63,13 +134,26 @@
     "motionPlay": "Enable motion"
   },
   "process": {
-    "label": "03 / Process",
+    "label": "Process",
     "title": "From the first talk",
     "titleAccent": "to the table.",
-    "steps": [["Meet", "Your venue, your guests, your menu."], ["Taste", "Design and copy in your style, two rounds of corrections."], ["Serve", "Publish, check, hand over – with a 60-minute walkthrough."]]
+    "steps": [
+      [
+        "Meet",
+        "Your venue, your guests, your menu."
+      ],
+      [
+        "Taste",
+        "Design and copy in your style, two rounds of corrections."
+      ],
+      [
+        "Serve",
+        "Publish, check, hand over – with a 60-minute walkthrough."
+      ]
+    ]
   },
   "inquiry": {
-    "label": "04 / Reservation",
+    "label": "Reservation",
     "title": "Reserve",
     "titleAccent": "your place.",
     "body": "Tell us about your venue – two sentences are enough.",
@@ -89,16 +173,40 @@
     "copy": "Copy inquiry text",
     "success": "Inquiry text copied. No message was sent.",
     "failure": "Copying is not possible. Please select and copy the text below.",
-    "draft": { "intro": "I am interested in a bespoke website for my venue.", "business": "Venue", "location": "Town", "direction": "Direction", "package": "Course", "price": "From", "idea": "My idea", "empty": "…", "once": "one-off", "net": "net", "from": "from" }
+    "draft": {
+      "intro": "I am interested in a bespoke website for my venue.",
+      "business": "Venue",
+      "location": "Town",
+      "direction": "Direction",
+      "package": "Course",
+      "price": "From",
+      "idea": "My idea",
+      "empty": "…",
+      "once": "one-off",
+      "net": "net",
+      "from": "from"
+    }
   },
   "faq": {
     "title": "Frequent",
     "titleAccent": "questions",
     "items": [
-      ["Is this a ready-made template?", "No. SAVRA shows a direction; your website is designed for your venue."],
-      ["Can my reservation system be included?", "Existing reservation or ordering links, yes. Further integrations depend on the provider."],
-      ["What does a website cost?", "From €500 net for a one-page website – the launch price for the first ten venues. We confirm the final price in writing before we start."],
-      ["Is SAVRA a client project?", "No. SAVRA is a concept website by Convenium, not a client project."]
+      [
+        "Is this a ready-made template?",
+        "No. SAVRA shows a direction; your website is designed for your venue."
+      ],
+      [
+        "Can my reservation system be included?",
+        "Existing reservation or ordering links, yes. Further integrations depend on the provider."
+      ],
+      [
+        "What does a website cost?",
+        "From €500 net for a one-page website – the launch price for the first ten venues. We confirm the final price in writing before we start."
+      ],
+      [
+        "Is SAVRA a client project?",
+        "No. SAVRA is a concept website by Convenium, not a client project."
+      ]
     ]
   },
   "footer": {
@@ -108,6 +216,31 @@
     "imprint": "Imprint",
     "privacy": "Privacy",
     "studio": "Convenium Studio, home",
-    "otherLocale": "Deutsch"
-  }
+    "otherLocale": "Deutsch",
+    "about": "Convenium designs websites for venues in Klagenfurt and Carinthia – each one made for its own house.",
+    "navTitle": "Navigation",
+    "contactTitle": "Contact",
+    "placesTitle": "Launch places",
+    "photoAlt": "A chef’s hands plating a dish with tweezers.",
+    "signature": "Convenium · Gastronomy"
+  },
+  "statement": {
+    "label": "The offer",
+    "text": "Ten venues get a website of their own at the launch price – plated like your menu, built for the phone in your guests’ hands, and easy to find when someone is hungry tonight."
+  },
+  "arch": {
+    "line": "Step inside.",
+    "alt": "A bar with backlit bottles, rattan stools and two cherry-red lamp shades in front of a pale wall with an arched niche."
+  },
+  "marquee": {
+    "words": [
+      "Restaurant",
+      "Café",
+      "Bakery",
+      "Bar"
+    ],
+    "sr": "For restaurants, cafés, bakeries and bars."
+  },
+  "launchAlt": "A cherry-red cocktail in a coupe glass on a dark wooden bar, glowing bottles behind.",
+  "sticky": "See the menu"
 }
