@@ -23,7 +23,8 @@ typography:
   title:   { fontFamily: Newsreader, fontSize: "clamp(1.5rem, 1.2rem + 0.9vw, 2.25rem)", fontWeight: 400, lineHeight: 1.12 }  # course titles, steps, SAVRA
   lead:    { fontFamily: Newsreader, fontSize: "clamp(1.125rem, 1rem + 0.5vw, 1.5rem)", fontWeight: 400, lineHeight: 1.4 }
   price:   { fontFamily: Archivo, fontSize: "clamp(2.25rem, 1.6rem + 1.8vw, 3.5rem)", fontWeight: 900, lineHeight: 1, letterSpacing: "-0.03em" }
-  numeral: { fontFamily: Archivo, fontSize: "clamp(3rem, 2.2rem + 2.4vw, 5.5rem)", fontWeight: 900, lineHeight: 0.82 }  # course plates; stays under the sheet's H2
+  numeral: { fontFamily: Archivo, fontSize: "clamp(2.25rem, 1.1rem + 2.5vw, 4.25rem)", fontWeight: 900, lineHeight: 0.82 }  # course plates 36 → 54 @1440 → 66; at or under the sheet's H2 at every width
+  claim:   { fontFamily: Newsreader, fontSize: "clamp(1.75rem, 1.2rem + 1.6vw, 3rem)", fontWeight: 400, lineHeight: 1.08, measure: "30ch" }  # launch module: 28 → 42 @1440 → 48, three lines
   body:    { fontFamily: Inter, fontSize: "17px", fontWeight: 400, lineHeight: 1.55 }
   small:   { fontFamily: Inter, fontSize: "14px", fontWeight: 400, lineHeight: 1.45 }
   label:   { fontFamily: Inter, fontSize: "12px", fontWeight: 500, lineHeight: 1.3, letterSpacing: "0.08em", transform: uppercase }
@@ -51,7 +52,7 @@ components:
   course-card: { bg: paper, text: ink, rule: hairline, glow: "cherry box-shadow on ::after" }
   course-card-featured: { bg: cherry, text: cotton, ratio: "9.0:1" }
   course-plate: { bg: noir, numeral: cotton, chip: "cotton on noir / cherry on noir (graphic)" }
-  launch-module: { bg: noir, claim: cotton, numerals: chili, ratio-chili-on-noir: "4.2:1 (display ≥ 24px)" }
+  launch-module: { bg: noir, claim: "cotton, Newsreader, 7/5 grid beside clock and offer", numerals: chili, ratio-chili-on-noir: "4.2:1 (display ≥ 24px)" }
   focus-ring: { ring: chili, spacer: "the ground behind the control", on-cherry: cotton }
 ---
 
@@ -75,10 +76,11 @@ Newsreader leads (the Hair & Beauty page leads with Archivo and a photo sequence
 menu). Archivo is confined to prices, numerals, the countdown and the wordmark. Inter operates: labels,
 body, controls. The hero is 94px at 1440 (clamp 44–112, 5.2vw) — the Atelier doctrine asks for a fixed
 step, argued here as a fluid step with a rem term because the page is designed for three widths and must
-survive text zoom; it stays the largest type on the page. The course numerals (max 88px) sit below the
-sheet's H2 (max 72px)? No: the numeral is a plate ornament and is capped by `--t-num`; it is visually
-larger than the H2 at wide widths only because it is a graphic inside a noir plate, not a heading. If that
-ever reads as a second headline, cap `--t-num` at 4.5rem.
+survive text zoom; it stays the largest type on the page. The course numerals sit at or under the
+sheet's H2 at every width (36/36 phone, 54/60 at 1440, 66/72 at 1920): the H2 names the chapter, the
+numeral only counts the course (finish review 2026-10-22; it was 88px max and read as a second headline).
+The launch module's claim is a headline, so Newsreader sets it, in the wide column beside the clock;
+Archivo keeps the countdown digits.
 
 ## Colour
 
