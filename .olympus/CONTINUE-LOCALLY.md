@@ -3,6 +3,11 @@
 Copy everything below the line into a fresh Claude Code session opened in the local clone of
 `RustamG16/convenium-gastronomy`, with `005-agency` and `Apollo` available as sibling folders.
 
+If the GitHub repository does not exist yet (the cloud session could not create repositories): create an
+empty public repo `convenium-gastronomy` under RustamG16 on github.com, unpack `convenium-gastronomy.zip`
+(it contains the full working tree and the `.git` history), then
+`git remote add origin git@github.com:RustamG16/convenium-gastronomy.git && git push -u origin main`.
+
 ---
 
 Continue the Convenium · Gastronomie landing page in this repo (`convenium-gastronomy`). It was built in
