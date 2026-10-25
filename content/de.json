@@ -30,7 +30,7 @@
     "secondary": "Platz reservieren",
     "tableLabel": "Zehn Launch-Plätze",
     "tableSr": "Zehn Launch-Plätze, einer pro Lokal.",
-    "alt": "Ein Bistro in der Dämmerung: dunkles Holz, kirschrote Samtbänke, weiße Tischtücher und Kerzen; eine Hand im weißen Hemdärmel stellt einen Teller ab.",
+    "alt": "Ein Stillleben auf hellem Kalkstein: ein Teller Kärntner Kasnudeln mit brauner Butter, Besteck, ein Glas Rotwein, Brot und eine kirschrote Leinenserviette.",
     "ticksLabel": "Zehn Launch-Plätze"
   },
   "menu": {
@@ -221,8 +221,7 @@
     "navTitle": "Navigation",
     "contactTitle": "Kontakt",
     "placesTitle": "Launch-Plätze",
-    "photoAlt": "Hände eines Kochs richten mit einer Pinzette einen Teller an.",
-    "signature": "Convenium · Gastronomie"
+    "photoAlt": "Hände eines Kochs richten mit einer Pinzette einen Teller an."
   },
   "statement": {
     "label": "Das Angebot",

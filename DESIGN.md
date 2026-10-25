@@ -136,3 +136,21 @@ ring on light and noir grounds, cotton ring on cherry, maroon and oxblood.
 - No Archivo, Newsreader or Inter.
 - No gradients; scrims are solid noir at an alpha.
 - No second sticky stage; no scroll-jacking.
+
+## v2.1 additions (2026-10-25, Rustam's review)
+
+- **Wordmark everywhere.** `CONVENIUM.` in Archivo 900 at -.045em with the dot in the accent is the studio
+  lockup shared with Hair & Beauty: centred in the bar (dot chili-300 on noir), on the legal pages, and run
+  gutter to gutter on a noir band at the foot of the footer (Archivo 900 at -.05em, 6.8em container fit).
+  Archivo is loaded for the wordmark only.
+- **Hero film.** A scroll-scrubbed canvas sequence (175 WebP frames, 1600×900, 9.8 MB): 121 frames of an
+  Artlist film (Nano Banana Pro start frame in Hair & Beauty's still-life language, Kling v3 Pro 1080p push-in),
+  then the 54 CONVENIUM logo frames shared with Hair & Beauty, so both pages close on the same brand moment.
+  Desktop: the photo opens from its half to full screen while the copy slides aside; phone: the photo rises
+  under the copy. 340vh runway (260vh phone), sticky stage at 100dvh. Reduced motion, no JS and Save-Data
+  keep the static split with the first frame as poster.
+- **3D room.** Four Artlist 3D renders (cherries, Kasnudeln plate, fork, wine glass), cut to alpha, frame
+  the statement: they rise in from depth, drift with the scroll and tilt with the pointer on desktop, float
+  on phones. Soft drop-shadow on the objects only.
+- **Wide screens.** `--max` 1680px from 1800px; the H1 is also capped at 14.5svh so a 1920×1080 browser
+  (≈910px tall viewport) shows the whole hero under the bar.

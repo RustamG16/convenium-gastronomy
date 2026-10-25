@@ -25,7 +25,7 @@ export function renderLegal({ kind, lang, launch, base, other, updated }) {
   <link rel="stylesheet" href="${base}styles.css">
 </head>
 <body class="legal-page">
-  <header class="legal-header"><a class="legal-mark" href="${base}">Convenium</a><a href="${other}" hreflang="${de ? 'en' : 'de'}" lang="${de ? 'en' : 'de'}">${de ? 'EN' : 'DE'}</a></header>
+  <header class="legal-header"><a class="brand legal-brand" href="${base}">CONVENIUM<span>.</span></a><a href="${other}" hreflang="${de ? 'en' : 'de'}" lang="${de ? 'en' : 'de'}">${de ? 'EN' : 'DE'}</a></header>
   <main class="legal" id="inhalt">
     <p class="legal-draft">${de ? 'Entwurf – noch nicht veröffentlicht' : 'Draft – not yet published'}</p>`;
   const foot = `

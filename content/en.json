@@ -30,7 +30,7 @@
     "secondary": "Reserve a place",
     "tableLabel": "Ten launch places",
     "tableSr": "Ten launch places, one per venue.",
-    "alt": "A bistro at dusk: dark wood, cherry-red velvet banquettes, white tablecloths and candles; a hand in a white shirt sleeve sets down a plate.",
+    "alt": "A still life on pale limestone: a plate of Carinthian Kasnudeln with brown butter, cutlery, a glass of red wine, bread and a cherry-red linen napkin.",
     "ticksLabel": "Ten launch places"
   },
   "menu": {
@@ -221,8 +221,7 @@
     "navTitle": "Navigation",
     "contactTitle": "Contact",
     "placesTitle": "Launch places",
-    "photoAlt": "A chef’s hands plating a dish with tweezers.",
-    "signature": "Convenium · Gastronomy"
+    "photoAlt": "A chef’s hands plating a dish with tweezers."
   },
   "statement": {
     "label": "The offer",

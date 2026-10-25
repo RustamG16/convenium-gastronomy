@@ -280,6 +280,57 @@
     });
   }
 
+  /* ---------------- The hero film: numbered frames painted to a canvas, chosen by scroll ----------------
+     Frames load in order after the poster; until a frame arrives the nearest loaded one stands in. The film
+     frames cover the stage; the brand frames (from cfg.safeFrom) scale so the wordmark's central 80 % always
+     fits, and the band left around them takes the frame's own corner colour, so the closing is never cropped
+     on a phone. */
+  function createSequence(section) {
+    var cfg; try { cfg = JSON.parse(section.getAttribute('data-seq')); } catch (e) { return null; }
+    var canvas = $('.hero-canvas', section); if (!canvas || !canvas.getContext) return null;
+    var c2d = canvas.getContext('2d'), imgs = new Array(cfg.count), ready = new Array(cfg.count), tone = new Array(cfg.count);
+    var current = 0, started = false, probe = document.createElement('canvas'); probe.width = probe.height = 2;
+    var pc = probe.getContext('2d', { willReadFrequently: true });
+    function src(i) { return cfg.dir + String(i + 1).padStart(4, '0') + '.webp'; }
+    function nearest(i) { for (var d = 0; d < cfg.count; d++) { if (ready[i - d]) return i - d; if (ready[i + d]) return i + d; } return -1; }
+    function draw(i) {
+      current = Math.max(0, Math.min(cfg.count - 1, i));
+      var k = nearest(current); if (k < 0) return;
+      var im = imgs[k], cw = canvas.width, ch = canvas.height, iw = im.naturalWidth, ih = im.naturalHeight;
+      var s = Math.max(cw / iw, ch / ih);
+      if (cfg.safeFrom && k + 1 >= cfg.safeFrom) s = Math.min(s, cw / (iw * 0.8));
+      if (s * ih < ch || s * iw < cw) { c2d.fillStyle = tone[k] || '#EDEBDD'; c2d.fillRect(0, 0, cw, ch); }
+      c2d.drawImage(im, (cw - iw * s) / 2, (ch - ih * s) / 2, iw * s, ih * s);
+      if (!started) { started = true; root.classList.add('seq-live'); }
+    }
+    function resize() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 2), r = canvas.getBoundingClientRect();
+      canvas.width = Math.max(1, Math.round(r.width * dpr)); canvas.height = Math.max(1, Math.round(r.height * dpr));
+      draw(current);
+    }
+    function load() {
+      var next = 0, active = 0;
+      function pump() {
+        while (active < 6 && next < cfg.count) {
+          (function (i) {
+            var im = new Image(); active++;
+            im.decoding = 'async';
+            im.onload = function () {
+              active--; imgs[i] = im; ready[i] = true;
+              if (cfg.safeFrom && i + 1 >= cfg.safeFrom) { try { pc.drawImage(im, 0, 0, 2, 2); var p = pc.getImageData(0, 0, 1, 1).data; tone[i] = 'rgb(' + p[0] + ',' + p[1] + ',' + p[2] + ')'; } catch (e) { tone[i] = null; } }
+              if (i === current || !started) draw(current);
+              pump();
+            };
+            im.onerror = function () { active--; pump(); };
+            im.src = src(i);
+          })(next++);
+        }
+      }
+      pump();
+    }
+    return { cfg: cfg, draw: draw, resize: resize, load: load };
+  }
+
   /* ---------------- Motion (GSAP + ScrollTrigger) ----------------
      Beat sheet (06-build-plan.md): 1 the bar drops in and the room is revealed behind a rising clip · 2 the
      three lines rise out of their masks · 3 the statement fills word by word · 4 the arch opens to the full
@@ -301,12 +352,63 @@
       // 1–2 · arrival
       var tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
       tl.fromTo('.bar', { y: -16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, clearProps: 'transform,opacity' }, 0.1)
-        .fromTo('.hero-photo img', { opacity: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.12 }, { clipPath: 'inset(0% 0 0 0)', scale: 1, duration: 1.4, clearProps: 'clipPath' }, phone ? 0.5 : 0)
+        .fromTo('.hero-poster, .hero-canvas', { scale: 1.12 }, { scale: 1, duration: 1.6, clearProps: 'transform' }, phone ? 0.5 : 0)
         .fromTo('.hero .label', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.6 }, 0.2)
         .fromTo('.hero .line-inner', { yPercent: 110 }, { yPercent: 0, duration: 1.1, stagger: 0.09 }, 0.25)
         .fromTo('.hero-body, .hero .actions, .hero-places', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 }, 0.7)
         .fromTo('.tick', { scale: 0 }, { scale: 1, duration: 0.5, stagger: 0.04, ease: 'back.out(2)' }, 1);
       root.classList.remove('pre');
+
+      // 2b · the film: the photo opens from its half to the full screen while the copy steps aside, the
+      // Artlist film scrubs with the scroll, then the CONVENIUM closing (the logo frames shared with Hair &
+      // Beauty) plays on its own share of the runway. Save-Data keeps the poster.
+      var hero = $('.hero[data-seq]'), seq = null;
+      var saveData = navigator.connection && navigator.connection.saveData;
+      if (hero && !saveData) seq = createSequence(hero);
+      if (seq) {
+        hero.classList.add('is-seq');
+        seq.resize();
+        seq.load();
+        var photo = $('.hero-photo', hero), panelEl = $('.hero-panel', hero);
+        var openFrom = function () {
+          if (!phone && window.innerWidth >= 1024) return 'inset(0% 50% 0% 0%)';
+          var stage = $('.hero-stage', hero), top = Math.min(0.8, panelEl.offsetHeight / Math.max(1, stage.clientHeight));
+          return 'inset(' + Math.round(top * 100) + '% 0% 0% 0%)';
+        };
+        var state = { f: 0 }, last = (seq.cfg.safeFrom || seq.cfg.count) - 2;
+        var film = gsap.timeline({ scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom bottom', scrub: phone ? 0.4 : 0.8, invalidateOnRefresh: true } });
+        film.fromTo(photo, { clipPath: openFrom }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.22, ease: 'none' }, 0)
+          .to(panelEl, (!phone && window.innerWidth >= 1024) ? { xPercent: 100, duration: 0.22, ease: 'power1.in' } : { yPercent: -100, duration: 0.22, ease: 'power1.in' }, 0)
+          .to(state, { f: last, duration: 0.7, ease: 'none', onUpdate: function () { seq.draw(Math.round(state.f)); } }, 0)
+          .to(state, { f: seq.cfg.count - 1, duration: 0.3, ease: 'none', onUpdate: function () { seq.draw(Math.round(state.f)); } }, 0.7);
+        window.addEventListener('resize', seq.resize);
+      }
+
+      // 3a · the 3D room: objects rise in from depth, then drift with the scroll and tilt with the pointer
+      // (desktop) or float on their own (phones).
+      var d3 = $('[data-d3]'), items = $$('.d3-item');
+      if (d3 && items.length) {
+        items.forEach(function (el, i) {
+          var depth = parseFloat(el.getAttribute('data-depth')) || 0.6;
+          gsap.fromTo(el, { opacity: 0, scale: 0.55, rotationY: i % 2 ? -55 : 55, z: -260, y: 90 }, {
+            opacity: 1, scale: 1, rotationY: 0, z: 0, y: 0, duration: 1.5, delay: i * 0.12, ease: 'power3.out',
+            scrollTrigger: { trigger: d3, start: 'top 72%', once: true },
+            onComplete: function () { if (phone) gsap.to(el, { y: '+=' + (10 + depth * 8), rotation: (i % 2 ? -1 : 1) * (3 + depth * 3), duration: 2.4 + i * 0.35, ease: 'sine.inOut', yoyo: true, repeat: -1 }); }
+          });
+          if (!phone) gsap.fromTo(el, { yPercent: 40 * depth, rotation: -10 * depth }, { yPercent: -40 * depth, rotation: 10 * depth, ease: 'none', scrollTrigger: { trigger: d3, start: 'top bottom', end: 'bottom top', scrub: 1 } });
+        });
+        if (!phone && hoverMQ.matches) {
+          var tilts = items.map(function (el) {
+            var depth = parseFloat(el.getAttribute('data-depth')) || 0.6;
+            return { depth: depth, rx: gsap.quickTo(el, 'rotationX', { duration: 0.9, ease: 'power3' }), ry: gsap.quickTo(el, 'rotationY', { duration: 0.9, ease: 'power3' }), x: gsap.quickTo(el, 'x', { duration: 1.1, ease: 'power3' }) };
+          });
+          d3.addEventListener('pointermove', function (e) {
+            var r = d3.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
+            tilts.forEach(function (t) { t.ry(px * 36 * t.depth); t.rx(-py * 30 * t.depth); t.x(px * 48 * t.depth); });
+          });
+          d3.addEventListener('pointerleave', function () { tilts.forEach(function (t) { t.ry(0); t.rx(0); t.x(0); }); });
+        }
+      }
 
       // 3 · the statement fills as it is read (scrubbed on desktop, played once on phones)
       var words = $$('.statement .w');
@@ -358,7 +460,11 @@
         else gsap.fromTo(el, { y: 40, rotate: -6 }, { y: -40, rotate: 6, ease: 'none', scrollTrigger: { trigger: el.closest('section'), start: 'top bottom', end: 'bottom top', scrub: 1 } });
       });
 
-      return function () { if (arch) arch.classList.remove('is-staged'); root.setAttribute('data-motion', 'reduced'); };
+      return function () {
+        if (arch) arch.classList.remove('is-staged');
+        if (seq) { hero.classList.remove('is-seq'); root.classList.remove('seq-live'); window.removeEventListener('resize', seq.resize); }
+        root.setAttribute('data-motion', 'reduced');
+      };
     });
     armDoor();
   }

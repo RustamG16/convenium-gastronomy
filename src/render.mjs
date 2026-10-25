@@ -10,6 +10,9 @@ export function csp(hash) {
   return `default-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-${hash}'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'`;
 }
 
+// The hero sequence: 121 frames of the Artlist film, then the 54 CONVENIUM logo frames shared with Hair & Beauty.
+export const SEQ = { count: 175, safeFrom: 122 };
+
 const money = (loc, n) => new Intl.NumberFormat(loc, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
 const fill = (tpl, map) => String(tpl).replace(/\{(\w+)\}/g, (m, k) => (k in map ? map[k] : m));
 
@@ -98,7 +101,8 @@ export function renderPage({ c, camp, base, hash, launch, example }) {
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="${base}assets/kit/fonts/instrument-serif-400.woff2">
-  <link rel="preload" as="image" href="${img('hero-room')}">
+  <link rel="preload" as="image" href="${base}assets/seq/hero/0001.webp">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="${base}assets/kit/fonts/archivo-900.woff2">
   <link rel="stylesheet" href="${base}assets/kit/fonts/fonts.css">
   <link rel="stylesheet" href="${base}styles.css">
   <script defer src="${base}assets/kit/vendor/gsap.min.js"></script>
@@ -111,7 +115,7 @@ export function renderPage({ c, camp, base, hash, launch, example }) {
 
   <header class="bar">
     <a class="btn btn--ghost bar-cta" href="#reservierung">${esc(c.nav.cta)}</a>
-    <a class="bar-mark" href="#top" aria-label="${esc(c.brandLabel)}">Convenium</a>
+    <a class="brand" href="#top" aria-label="${esc(c.brandLabel)}">CONVENIUM<span>.</span></a>
     <button class="bar-menu js-only" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle><span class="bar-lines" aria-hidden="true"></span><span class="sr-only" data-menu-label>${esc(c.nav.menuBtn)}</span></button>
     <a class="bar-menu nojs-only" href="#fusszeile"><span class="bar-lines" aria-hidden="true"></span><span class="sr-only">${esc(c.nav.menuBtn)}</span></a>
   </header>
@@ -125,8 +129,9 @@ export function renderPage({ c, camp, base, hash, launch, example }) {
   </div>
 
   <main id="inhalt">
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <figure class="hero-photo"><img src="${img('hero-room')}" width="1289" height="1600" alt="${esc(c.hero.alt)}" fetchpriority="high"></figure>
+    <section class="hero" id="top" aria-labelledby="hero-title" data-seq='{"dir":"${base}assets/seq/hero/","count":${SEQ.count},"safeFrom":${SEQ.safeFrom},"width":1600,"height":900}'>
+      <div class="hero-stage">
+      <figure class="hero-photo"><img class="hero-poster" src="${base}assets/seq/hero/0001.webp" width="1600" height="900" alt="${esc(c.hero.alt)}" fetchpriority="high"><canvas class="hero-canvas" aria-hidden="true"></canvas></figure>
       <div class="hero-panel">
         <p class="label">${esc(c.hero.eyebrow)}</p>
         <h1 id="hero-title"><span class="line"><span class="line-inner">${esc(c.hero.line1)}</span></span><span class="line"><em class="line-inner">${esc(c.hero.line2)}</em></span><span class="line"><em class="line-inner">${esc(c.hero.line3)}</em></span></h1>
@@ -142,14 +147,20 @@ export function renderPage({ c, camp, base, hash, launch, example }) {
         </div>
         <img class="cut cut--cherries" src="${img('cut-cherries')}" width="451" height="700" alt="" aria-hidden="true" data-cut>
       </div>
+      </div>
     </section>
 
-    <section class="statement" aria-labelledby="statement-label">
-      <div class="wrap">
+    <section class="statement" aria-labelledby="statement-label" data-d3>
+      <div class="d3" aria-hidden="true">
+        <img class="d3-item d3--cherries" src="${img('d3-cherries')}" width="543" height="677" alt="" loading="lazy" decoding="async" data-depth="0.7">
+        <img class="d3-item d3--fork" src="${img('d3-fork')}" width="762" height="736" alt="" loading="lazy" decoding="async" data-depth="0.45">
+        <img class="d3-item d3--plate" src="${img('d3-plate')}" width="658" height="644" alt="" loading="lazy" decoding="async" data-depth="1">
+        <img class="d3-item d3--glass" src="${img('d3-glass')}" width="363" height="664" alt="" loading="lazy" decoding="async" data-depth="0.6">
+      </div>
+      <div class="wrap statement-wrap">
         <p class="label" id="statement-label">${esc(c.statement.label)}</p>
         <p class="statement-text" data-fill>${words}</p>
       </div>
-      <img class="cut cut--glass" src="${img('cut-glass')}" width="502" height="700" alt="" aria-hidden="true" data-cut>
     </section>
 
     <section class="arch" aria-labelledby="arch-line" data-arch>
@@ -322,10 +333,12 @@ export function renderPage({ c, camp, base, hash, launch, example }) {
         <a class="btn btn--light" href="#reservierung">${esc(c.nav.cta)}</a>
       </div>
     </div>
-    <div class="wrap footer-bottom">
-      <p class="footer-signature"><a href="${esc(launch.studioUrl)}" aria-label="${esc(c.footer.studio)}">${esc(c.footer.signature)}</a></p>
+    <div class="footer-base">
+      <p class="footer-brand"><a href="${esc(launch.studioUrl)}" aria-label="${esc(c.footer.studio)}">CONVENIUM<span>.</span></a></p>
+    <div class="footer-bottom">
       <p class="footer-legal"><span>${esc(c.footer.legal)}</span><a href="${legal.a}">${esc(c.footer.imprint)}</a><a href="${legal.b}">${esc(c.footer.privacy)}</a></p>
       <p>© 2026 Convenium</p>
+    </div>
     </div>
   </footer>
 

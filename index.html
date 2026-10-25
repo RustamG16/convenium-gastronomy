@@ -22,7 +22,8 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/kit/fonts/instrument-serif-400.woff2">
-  <link rel="preload" as="image" href="assets/photos/hero-room.webp">
+  <link rel="preload" as="image" href="assets/seq/hero/0001.webp">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/kit/fonts/archivo-900.woff2">
   <link rel="stylesheet" href="assets/kit/fonts/fonts.css">
   <link rel="stylesheet" href="styles.css">
   <script defer src="assets/kit/vendor/gsap.min.js"></script>
@@ -35,7 +36,7 @@
 
   <header class="bar">
     <a class="btn btn--ghost bar-cta" href="#reservierung">Platz reservieren</a>
-    <a class="bar-mark" href="#top" aria-label="Convenium, zum Seitenanfang">Convenium</a>
+    <a class="brand" href="#top" aria-label="Convenium, zum Seitenanfang">CONVENIUM<span>.</span></a>
     <button class="bar-menu js-only" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle><span class="bar-lines" aria-hidden="true"></span><span class="sr-only" data-menu-label>Menü</span></button>
     <a class="bar-menu nojs-only" href="#fusszeile"><span class="bar-lines" aria-hidden="true"></span><span class="sr-only">Menü</span></a>
   </header>
@@ -49,8 +50,9 @@
   </div>
 
   <main id="inhalt">
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <figure class="hero-photo"><img src="assets/photos/hero-room.webp" width="1289" height="1600" alt="Ein Bistro in der Dämmerung: dunkles Holz, kirschrote Samtbänke, weiße Tischtücher und Kerzen; eine Hand im weißen Hemdärmel stellt einen Teller ab." fetchpriority="high"></figure>
+    <section class="hero" id="top" aria-labelledby="hero-title" data-seq='{"dir":"assets/seq/hero/","count":175,"safeFrom":122,"width":1600,"height":900}'>
+      <div class="hero-stage">
+      <figure class="hero-photo"><img class="hero-poster" src="assets/seq/hero/0001.webp" width="1600" height="900" alt="Ein Stillleben auf hellem Kalkstein: ein Teller Kärntner Kasnudeln mit brauner Butter, Besteck, ein Glas Rotwein, Brot und eine kirschrote Leinenserviette." fetchpriority="high"><canvas class="hero-canvas" aria-hidden="true"></canvas></figure>
       <div class="hero-panel">
         <p class="label">Websites für Gastronomie · Klagenfurt</p>
         <h1 id="hero-title"><span class="line"><span class="line-inner">Ihr Lokal.</span></span><span class="line"><em class="line-inner">Ein eigener Tisch</em></span><span class="line"><em class="line-inner">im Netz.</em></span></h1>
@@ -66,14 +68,20 @@
         </div>
         <img class="cut cut--cherries" src="assets/photos/cut-cherries.webp" width="451" height="700" alt="" aria-hidden="true" data-cut>
       </div>
+      </div>
     </section>
 
-    <section class="statement" aria-labelledby="statement-label">
-      <div class="wrap">
+    <section class="statement" aria-labelledby="statement-label" data-d3>
+      <div class="d3" aria-hidden="true">
+        <img class="d3-item d3--cherries" src="assets/photos/d3-cherries.webp" width="543" height="677" alt="" loading="lazy" decoding="async" data-depth="0.7">
+        <img class="d3-item d3--fork" src="assets/photos/d3-fork.webp" width="762" height="736" alt="" loading="lazy" decoding="async" data-depth="0.45">
+        <img class="d3-item d3--plate" src="assets/photos/d3-plate.webp" width="658" height="644" alt="" loading="lazy" decoding="async" data-depth="1">
+        <img class="d3-item d3--glass" src="assets/photos/d3-glass.webp" width="363" height="664" alt="" loading="lazy" decoding="async" data-depth="0.6">
+      </div>
+      <div class="wrap statement-wrap">
         <p class="label" id="statement-label">Das Angebot</p>
         <p class="statement-text" data-fill><span class="w">Zehn</span> <span class="w">Lokale</span> <span class="w">bekommen</span> <span class="w">ihre</span> <span class="w">eigene</span> <span class="w">Website</span> <span class="w">zum</span> <span class="w">Launch-Preis</span> <span class="w">–</span> <span class="w">angerichtet</span> <span class="w">wie</span> <span class="w">Ihre</span> <span class="w">Karte,</span> <span class="w">gebaut</span> <span class="w">für</span> <span class="w">das</span> <span class="w">Telefon</span> <span class="w">in</span> <span class="w">der</span> <span class="w">Hand</span> <span class="w">Ihrer</span> <span class="w">Gäste</span> <span class="w">und</span> <span class="w">zu</span> <span class="w">finden,</span> <span class="w">wenn</span> <span class="w">heute</span> <span class="w">Abend</span> <span class="w">jemand</span> <span class="w">Hunger</span> <span class="w">hat.</span></p>
       </div>
-      <img class="cut cut--glass" src="assets/photos/cut-glass.webp" width="502" height="700" alt="" aria-hidden="true" data-cut>
     </section>
 
     <section class="arch" aria-labelledby="arch-line" data-arch>
@@ -294,10 +302,12 @@
         <a class="btn btn--light" href="#reservierung">Platz reservieren</a>
       </div>
     </div>
-    <div class="wrap footer-bottom">
-      <p class="footer-signature"><a href="https://convenium.at/" aria-label="Convenium Studio, Startseite">Convenium · Gastronomie</a></p>
+    <div class="footer-base">
+      <p class="footer-brand"><a href="https://convenium.at/" aria-label="Convenium Studio, Startseite">CONVENIUM<span>.</span></a></p>
+    <div class="footer-bottom">
       <p class="footer-legal"><span>Demo-Vorschau · keine Veröffentlichung, kein Versand</span><a href="impressum/">Impressum</a><a href="datenschutz/">Datenschutz</a></p>
       <p>© 2026 Convenium</p>
+    </div>
     </div>
   </footer>
 

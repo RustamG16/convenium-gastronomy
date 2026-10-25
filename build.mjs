@@ -38,7 +38,7 @@ const sum = (ids) => ids.reduce((s, id) => s + camp.services[id].launch, 0);
 for (const p of camp.packages) if (sum(p.services) !== p.launch) errors.push(`package ${p.id}: launch ${p.launch} != sum of services ${sum(p.services)}`);
 
 // --- assets ---
-for (const f of ['assets/savra/cover.jpg', 'assets/savra/cover-portrait.jpg', 'assets/savra/loop.mp4', 'assets/savra/loop-portrait.mp4', ...['hero-room', 'arch-bar', 'course-1', 'course-2', 'course-3', 'food-1', 'food-2', 'food-3', 'food-4', 'chef', 'cut-cherries', 'cut-glass', 'cut-cup'].map((n) => `assets/photos/${n}.webp`), 'assets/kit/fonts/instrument-serif-400.woff2', 'assets/kit/vendor/gsap.min.js', 'assets/kit/vendor/ScrollTrigger.min.js', 'assets/kit/fonts/fonts.css', 'favicon.svg', 'og.jpg', 'styles.css', 'script.js', 'campaign.js'])
+for (const f of ['assets/savra/cover.jpg', 'assets/savra/cover-portrait.jpg', 'assets/savra/loop.mp4', 'assets/savra/loop-portrait.mp4', ...Array.from({ length: 175 }, (_, i) => `assets/seq/hero/${String(i + 1).padStart(4, '0')}.webp`), ...['d3-cherries', 'd3-plate', 'd3-fork', 'd3-glass', 'arch-bar', 'course-1', 'course-2', 'course-3', 'food-1', 'food-2', 'food-3', 'food-4', 'chef', 'cut-cherries', 'cut-glass', 'cut-cup'].map((n) => `assets/photos/${n}.webp`), 'assets/kit/fonts/instrument-serif-400.woff2', 'assets/kit/fonts/archivo-900.woff2', 'assets/kit/vendor/gsap.min.js', 'assets/kit/vendor/ScrollTrigger.min.js', 'assets/kit/fonts/fonts.css', 'favicon.svg', 'og.jpg', 'styles.css', 'script.js', 'campaign.js'])
   if (!(await exists(f))) errors.push(`missing ${f}`);
 
 if (errors.length) { console.error('build refused:\n  ' + errors.join('\n  ')); process.exit(1); }
