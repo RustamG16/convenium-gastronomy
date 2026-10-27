@@ -10,11 +10,12 @@ const miss = (v, lang) => (v ? esc(v) : `<mark>[${lang === 'de' ? 'fehlt' : 'mis
 export function renderLegal({ kind, lang, launch, base, other, updated }) {
   const de = lang === 'de';
   const l = launch.legal;
+  const home = de ? base : base + 'en/';
   const head = (title, alt) => `<!doctype html>
 <html lang="${lang}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="robots" content="noindex,nofollow">
   <title>${title} — Convenium</title>
   <meta http-equiv="Content-Security-Policy" content="${LEGAL_CSP}">
@@ -32,6 +33,12 @@ export function renderLegal({ kind, lang, launch, base, other, updated }) {
     <p class="legal-updated">${de ? 'Stand' : 'Last updated'}: ${updated}</p>
     <p><a href="${base}">← ${de ? 'Zur Startseite' : 'Back to the start page'}</a></p>
   </main>
+  <nav class="tabbar" aria-label="${de ? 'Mobile Navigation' : 'Mobile navigation'}">
+    <a href="${home}#karte"><span class="tab-icon tab-icon--menu" aria-hidden="true"></span>${de ? 'Die Karte' : 'The menu'}</a>
+    <a href="${home}#beispiel"><span class="tab-icon tab-icon--door" aria-hidden="true"></span>${de ? 'Beispiel' : 'Example'}</a>
+    <a href="${home}#ablauf"><span class="tab-icon tab-icon--steps" aria-hidden="true"></span>${de ? 'Ablauf' : 'Process'}</a>
+    <a class="tabbar-cta" href="${home}#reservierung">${de ? 'Platz reservieren' : 'Reserve a place'}</a>
+  </nav>
 </body>
 </html>
 `;

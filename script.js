@@ -238,6 +238,21 @@
     }, { passive: true });
   }
 
+  /* ---------------- Phone folds: the value list and the market sources ----------------
+     Open in the markup (desktop, no JS); closed below 768 px so the menu stays one screen shorter. A price
+     link to #marktquellen opens its fold first. */
+  var folds = $$('[data-m-fold]'), phoneMQ = window.matchMedia('(max-width: 767px)');
+  function setFolds() { folds.forEach(function (d) { d.open = !phoneMQ.matches; }); }
+  if (folds.length) {
+    setFolds();
+    if (phoneMQ.addEventListener) phoneMQ.addEventListener('change', setFolds); else phoneMQ.addListener(setFolds);
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href="#marktquellen"]');
+      var d = a && $('#marktquellen [data-m-fold]');
+      if (d) d.open = true;
+    });
+  }
+
   /* ---------------- SAVRA: its own loop, on hover (fine pointer) or in view (touch) ----------------
      The capture is real; the video is a silent loop of the live site. Paused under reduced motion and by
      the toggle. Source picked once per layout (landscape from laptop up, portrait below). */

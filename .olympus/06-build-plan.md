@@ -146,3 +146,24 @@ deep cherry red, no text, no logos.
 | cut-cherries | 1:1 | Engraving, cherry ink on cotton |
 | cut-glass | 1:1 | Engraving, wine glass |
 | cut-cup | 1:1 | Engraving, Viennese coffee cup |
+
+---
+
+## Mobile pass (2026-10-27) — budgets and treatment
+
+Budgets at 390×844: home ≤ 16 screens (it carries the hero scroll film), other routes ≤ 8; 0 targets < 24 px; inputs
+≥ 16 px; no overflow from 320 px; tab bar on every route; reduced motion leaves the h1 at opacity ≥ 0.95; desktop 1280
+unchanged.
+
+The home is in budget (15.8) and already has the shell (tab bar, card rail, safe areas, phone runways). Treatment:
+
+| Section | Treatment | Why |
+|---|---|---|
+| Karte · "In jedem Gang" (value list) | **fold**, closed on phones | 315 px of reference text after the price list |
+| Karte · market sources | **fold**, closed on phones; a price link to `#marktquellen` opens it | 496 px of source notes |
+| Karte · extras (price list) | stays open (first fold rule) | — |
+| Statement, arch, hero film | untouched | signature moments |
+| Legal pages | tab bar added (links back to the home chapters), `viewport-fit=cover` | shell on every route |
+| Small targets, preview textarea | 24 px boxes on phones; 16 px | standards floor |
+
+No content cut.

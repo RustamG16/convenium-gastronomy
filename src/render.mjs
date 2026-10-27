@@ -189,14 +189,14 @@ export function renderPage({ c, camp, base, hash, launch, example }) {
           </div>
           <div class="value">
             <h3 class="label">${esc(c.menu.valueTitle)}</h3>
-            <ul>${value}</ul>
+            <details class="m-fold" open data-m-fold><summary class="label m-fold-summary">${esc(c.menu.valueTitle)}<span class="faq-mark" aria-hidden="true"></span></summary><ul>${value}</ul></details>
           </div>
         </div>
         <p class="menu-note">${esc(c.menu.note)}</p>
         <div class="menu-sources" id="marktquellen">
           <h3 class="label">${esc(cc.claimSource)}</h3>
-          <ul>${sources}</ul>
-          <p>${esc(cc.sourcesNote)} ${esc(cc.after)}</p>
+          <details class="m-fold" open data-m-fold><summary class="label m-fold-summary">${esc(cc.claimSource)}<span class="faq-mark" aria-hidden="true"></span></summary><ul>${sources}</ul>
+          <p>${esc(cc.sourcesNote)} ${esc(cc.after)}</p></details>
         </div>
       </div>
     </section>
