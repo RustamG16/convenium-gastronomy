@@ -167,3 +167,17 @@ The home is in budget (15.8) and already has the shell (tab bar, card rail, safe
 | Small targets, preview textarea | 24 px boxes on phones; 16 px | standards floor |
 
 No content cut.
+
+## Mobile pass 2 (2026-10-28) — CRAP layout, home ≤ 10 screens
+
+Budget tightened by the studio: home ≤ 10 screens at 390×844 even with the film. Layout first:
+
+| Change | Rule |
+|---|---|
+| Shell (tab bar, header CTA off, folds, phone motion) scoped to the site's own collapse point, 1023 px — was 767, so 768–1023 had neither layout | one narrow layout |
+| `--section` 72 (640–1023) / 56 (< 640); heading → copy `--m-head` 16, heading → media `--m-media` 32; sub-blocks 48 | one spacing scale |
+| Arch: no pin below 1024 (was a 190vh runway); the frame opens once in view. The hero film stays the one scrubbed stage, runway 200vh (640–1023) / 170vh (< 640) | signature kept, runway shortened |
+| Extras price list → rail with the cards' width (`--m-rail`), bleeds right only | rail |
+| Launch block padded on the gutter (was 8 px in); launch photo 16:9, hidden < 640 (decorative) | alignment / density |
+| Process: cup cut-out beside the heading, numerals beside each step | proximity |
+| Footer: chapter links and launch places (both in the tab bar / hero) leave the narrow footer; locale + "top" on one row; the noir base clears the tab bar | repetition |

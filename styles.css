@@ -390,8 +390,8 @@ textarea { resize: vertical; }
   .card { flex: 0 0 min(82%, 420px); scroll-snap-align: center; }
   .rail-count { display: block; margin-top: 14px; text-align: center; font: 600 12px/1 var(--sans); letter-spacing: .14em; color: var(--gray); font-variant-numeric: tabular-nums; }
 }
-@media (max-width: 767px) {
-  :root { --gutter: max(20px, env(safe-area-inset-left), env(safe-area-inset-right)); }
+@media (max-width: 1023px) {
+  :root { --gutter: max(32px, env(safe-area-inset-left), env(safe-area-inset-right)); }
   .bar { top: max(10px, env(safe-area-inset-top)); grid-template-columns: 44px 1fr 44px; min-height: 56px; }
   .bar-cta { display: none; }
   .brand { grid-column: 2; justify-self: center; }
@@ -404,7 +404,6 @@ textarea { resize: vertical; }
   .tabbar .tabbar-cta[aria-current] { background: var(--maroon); }
   .menu-open .tabbar, .sticky-cta { display: none; }
   .site-footer { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
-  .arch.is-staged { height: 190vh; }
   .hero-panel { padding-top: calc(104px + env(safe-area-inset-top)); }
   /* Folds: the value list and the market sources close on phones (script.js); their h3 stays for the outline. */
   .value > h3.label, .menu-sources > h3.label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -422,6 +421,73 @@ textarea { resize: vertical; }
   .legal-page .tabbar a { color: var(--gray-noir); }
   .legal-page .tabbar .tabbar-cta { color: var(--cotton); }
   .legal-page .legal { padding-bottom: calc(112px + env(safe-area-inset-bottom)); }
+}
+@media (max-width: 639px) { :root { --gutter: max(20px, env(safe-area-inset-left), env(safe-area-inset-right)); } }
+
+/* ---------- Narrow layout (mobile pass 2, CRAP): one layer from the site's own collapse point (1023 px).
+   One spacing scale — every section pads --section, heading → copy --m-head, heading → media --m-media, both
+   smaller than the gap between sections; every block starts on the gutter; rails bleed right only and share
+   one card width; the arch opens once instead of pinning (the hero film stays the one scrubbed stage). ---------- */
+@media (max-width: 1023px) {
+  :root { --section: 72px; --m-head: 16px; --m-media: 32px; --m-rail: min(82%, 420px); }
+  .hero.is-seq { height: 200vh; }
+  .statement { min-height: 0; padding: calc(var(--section) + 120px) 0; }
+  .arch { padding-bottom: var(--section); }
+  .arch-line { bottom: 24px; }
+  .sec-head { gap: var(--m-head); margin-bottom: var(--m-media); }
+  .card { flex-basis: var(--m-rail); }
+  .menu-foot { margin-top: var(--section); padding-top: var(--m-media); }
+  .menu-note { margin-top: var(--m-media); }
+  .extras .menu-list { display: flex; gap: 14px; margin-inline: 0 calc(-1 * var(--gutter)); padding: 0 var(--gutter) 4px 0; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 0; overscroll-behavior-x: contain; scrollbar-width: none; }
+  .extras .menu-list::-webkit-scrollbar { display: none; }
+  .extras .menu-list li, .extras .menu-list li:first-child { flex: 0 0 var(--m-rail); flex-direction: column; justify-content: space-between; gap: 16px; padding: 18px; border: 1px solid var(--rule); border-radius: 4px; background: var(--cotton); scroll-snap-align: start; }
+  .campaign-photo { aspect-ratio: 16 / 9; }
+  .campaign-block { padding: var(--section) var(--gutter); }
+  .marquee { padding: 40px 0; }
+  .example { padding-top: 48vw; padding-bottom: var(--section); }
+  .process .sec-head { position: relative; padding-right: 96px; }
+  .cut--cup { position: absolute; right: 0; bottom: 0; width: 80px; }
+  .steps { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .steps li { grid-template-columns: 64px minmax(0, 1fr); gap: 4px 16px; padding: 20px 0; }
+  .steps li > :not(.step-num) { grid-column: 2; }
+  .step-num { grid-row: span 2; font-size: 48px; }
+  .inquiry-grid { gap: var(--m-media); }
+  .inquiry-intro > p:not(.label) { margin-top: var(--m-head); }
+  .example-intro { margin-top: var(--m-head); }
+  .composer { gap: 20px; }
+  .faq { gap: var(--m-head); margin-top: var(--section); padding-top: var(--m-media); }
+  .site-footer { padding-top: var(--section); }
+  .footer-grid { gap: var(--m-media); }
+  .footer-grid > * { padding-top: var(--m-media); }
+  /* The tab bar and the menu already carry the four chapter links and the reservation; the footer keeps the
+     locale switch and "back to top" on one row, and the launch places (shown in the hero) step out. */
+  .footer-nav { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 0 28px; }
+  .footer-nav .label { flex-basis: 100%; }
+  .footer-nav > a:nth-of-type(-n+4), .footer-places { display: none; }
+  .footer-base { margin-top: var(--section); }
+  /* The noir base ends the page under the tab bar (no cherry strip below it). */
+  .site-footer { padding-bottom: 0; }
+  .footer-base { padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
+}
+@media (max-width: 639px) {
+  :root { --section: 56px; --m-sub: 48px; }
+  .hero.is-seq { height: 170vh; }
+  .statement { padding: 116px 0 124px; }
+  .menu-foot, .faq { margin-top: var(--m-sub); }
+  .menu-note { margin-top: 24px; }
+  /* Selection rows: label over value, the clear link on the value's line. */
+  .selection { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 2px 16px; }
+  .selection .field-label { grid-column: 1 / -1; }
+  .selection-value { margin: 0; }
+  .campaign-photo { display: none; }
+  .footer-base { margin-top: var(--m-media); }
+  .faq summary { min-height: 52px; padding: 10px 0; }
+  .composer { gap: var(--m-head); }
+  .steps li { padding: 16px 0; }
+  .d3--cherries { top: 20px; width: 64px; } .d3--fork { top: 28px; width: 96px; }
+  .d3--plate { bottom: 20px; width: 112px; } .d3--glass { bottom: 18px; width: 52px; }
+  .arch-frame { aspect-ratio: 1; border-radius: 50vw 50vw 0 0; }
+  .example { padding-top: 44vw; }
 }
 .tab-icon { position: relative; display: block; width: 18px; height: 14px; color: inherit; }
 .tab-icon--menu { border-top: 1.5px solid; border-bottom: 1.5px solid; }

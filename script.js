@@ -239,9 +239,9 @@
   }
 
   /* ---------------- Phone folds: the value list and the market sources ----------------
-     Open in the markup (desktop, no JS); closed below 768 px so the menu stays one screen shorter. A price
+     Open in the markup (desktop, no JS); closed below 1024 px (the site's collapse point) so the menu stays one screen shorter. A price
      link to #marktquellen opens its fold first. */
-  var folds = $$('[data-m-fold]'), phoneMQ = window.matchMedia('(max-width: 767px)');
+  var folds = $$('[data-m-fold]'), phoneMQ = window.matchMedia('(max-width: 1023px)');
   function setFolds() { folds.forEach(function (d) { d.open = !phoneMQ.matches; }); }
   if (folds.length) {
     setFolds();
@@ -350,8 +350,9 @@
      Beat sheet (06-build-plan.md): 1 the bar drops in and the room is revealed behind a rising clip · 2 the
      three lines rise out of their masks · 3 the statement fills word by word · 4 the arch opens to the full
      screen (the one sticky stage) · 5 the cards rise · 6 the marquee travels sideways · 7 the engraved
-     cut-outs drift. Phone (≤ 767 or coarse pointer): 3 plays once, 4 runs a ~2-screen runway, 6 runs on its
-     own clock, 7 floats instead of following the scroll. Reduced motion: none of it. */
+     cut-outs drift. Narrow (≤ 1023, the collapse point) or coarse pointer: 3 plays once, 4 opens once without a
+     pin (below 1024 the hero film is the one scrubbed stage), 6 runs on its own clock, 7 floats instead of
+     following the scroll. Reduced motion: none of it. */
   function initMotion() {
     var gsap = window.gsap, ST = window.ScrollTrigger;
     if (!gsap || !ST) { root.classList.remove('pre'); root.setAttribute('data-motion', 'unavailable'); armDoor(); return; }
@@ -359,7 +360,7 @@
     var css = getComputedStyle(root);
     var GRAY = css.getPropertyValue('--gray').trim(), CHERRY = css.getPropertyValue('--cherry').trim();
     var mm = gsap.matchMedia();
-    mm.add({ motion: '(prefers-reduced-motion: no-preference)', reduce: '(prefers-reduced-motion: reduce)', phone: '(max-width: 767px), (pointer: coarse)' }, function (ctx) {
+    mm.add({ motion: '(prefers-reduced-motion: no-preference)', reduce: '(prefers-reduced-motion: reduce)', phone: '(max-width: 1023px), (pointer: coarse)', narrow: '(max-width: 1023px)' }, function (ctx) {
       if (!ctx.conditions.motion) { root.classList.remove('pre'); root.setAttribute('data-motion', 'reduced'); return undefined; }
       var phone = ctx.conditions.phone;
       root.setAttribute('data-motion', 'full');
@@ -434,7 +435,10 @@
 
       // 4 · the arch opens into the room (the signature: scrubbed on every size, shorter on phones)
       var arch = $('[data-arch]'), frame = $('[data-arch-frame]');
-      if (arch && frame) {
+      if (arch && frame && ctx.conditions.narrow) {
+        gsap.fromTo(frame, { clipPath: 'inset(14% 14% 0% 14%)', scale: 0.96 }, { clipPath: 'inset(0% 0% 0% 0%)', scale: 1, duration: 1.2, ease: 'power3.out', clearProps: 'clipPath,transform', scrollTrigger: { trigger: frame, start: 'top 80%', once: true } });
+        gsap.fromTo('.arch-line', { yPercent: 120, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.8, delay: 0.4, ease: 'power3.out', scrollTrigger: { trigger: frame, start: 'top 80%', once: true } });
+      } else if (arch && frame) {
         arch.classList.add('is-staged');
         var startW = function () { return Math.min(window.innerWidth * (window.innerWidth < 640 ? 0.7 : 0.34), 520); };
         gsap.fromTo(frame,
